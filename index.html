@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
+  <title>Digital Das — IT & Digital Marketing Agency in Lucknow</title>
+  <meta name="description" content="Digital Das is Lucknow's premier IT & digital marketing agency. We deliver high-ROI web development, SEO, Meta & Google Ads, and custom app development." />
+  <meta name="author" content="Digital Das" />
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://digitaldas.in" />
+  <meta property="og:title" content="Digital Das — IT & Digital Marketing Agency in Lucknow" />
+  <meta property="og:description" content="Get more customers online — not just more followers. Result-driven SEO, website development & performance marketing in Lucknow." />
+  <meta property="og:image" content="assets/videos/founder.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- LocalBusiness JSON-LD Schema (Head Office Address) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Digital Das",
+    "image": "assets/logo.png",
+    "@id": "https://digitaldas.in",
+    "url": "https://digitaldas.in",
+    "telephone": "+916387812688",
+    "email": "info@digitaldas.com",
+    "priceRange": "₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "First Floor, B-3/11, Vibhuti Khand, Gomti Nagar",
+      "addressLocality": "Lucknow",
+      "addressRegion": "UP",
+      "postalCode": "226010",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 26.8667,
+      "longitude": 81.0002
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "09:30",
+      "closes": "19:00"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Lucknow"
+    },
+    "sameAs": [
+      "https://www.instagram.com/dastalkss/",
+      "https://in.linkedin.com/company/digitaldas",
+      "https://youtube.com/@Dastalks.",
+      "https://x.com/pratishekd"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#e8a13c',
+              hover: '#d48f2b',
+              light: '#fdf8ef',
+              dark: '#9a6417'
+            },
+            dark: {
+              base: '#0d0c0a',
+              end: '#241a0e',
+              card: '#15110c',
+              cardAlt: '#211a12',
+              border: '#3a3226',
+              muted: '#c9c2b4'
+            },
+            cream: {
+              DEFAULT: '#f7f3ec',
+              card: '#f4f0e8',
+              border: '#e6dfd0',
+              muted: '#6c665a'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px -5px rgba(232, 161, 60, 0.25)',
+            'card-soft': '0 10px 30px -10px rgba(0, 0, 0, 0.08)',
+            'dark-card': '0 12px 32px -8px rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Base Reset & Custom Touch Rules */
+    html, body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0d0c0a;
+      color: #1a1815;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Scrollbar behavior for scroll-snap carousel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Smooth Scroll Snap */
+    .snap-x-mandatory {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .snap-card {
+      scroll-snap-align: center;
+    }
+
+    /* Input Focus Styles preventing browser outline hacks */
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #e8a13c;
+      outline-offset: 0px;
+    }
+
+    /* Motion Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Intersection Observer Animation Initial States */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-[#0d0c0a] text-[#1a1815] pb-[76px] md:pb-0 antialiased selection:bg-[#e8a13c] selection:text-black">
+
+  <!-- =================================================================== -->
+  <!-- A. MINIMAL STICKY HEADER                                            -->
+  <!-- =================================================================== -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[64px] flex items-center px-4 md:px-8 border-b border-transparent">
+    <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+      
+      <!-- Brand Logo (Circular mark inside subtle cream chip on dark header + live white text wordmark) -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#e8a13c] rounded-lg p-1" aria-label="Digital Das Homepage">
+        
+        <!-- Circular Chip for dark background separation -->
+        <div class="bg-[#f7f3ec] p-0.5 rounded-full inline-flex items-center justify-center shadow-sm">
+          <img src="assets/logo.png"
+               loading="eager"
+               fetchpriority="high"
+               width="40"
+               height="40"
+               alt="Digital Das — IT & Digital Marketing Agency, Lucknow"
+               class="w-[34px] h-[34px] md:w-[40px] md:h-[40px] aspect-square rounded-full object-contain transition-transform group-hover:scale-105"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          
+          <div class="hidden items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-[#e8a13c] text-black font-extrabold flex items-center justify-center text-xs">DD</div>
+          </div>
+        </div>
+
+        <!-- Live Text Wordmark in White -->
+        <span class="text-white font-extrabold text-lg md:text-xl tracking-tight leading-none">Digital Das</span>
+      </a>
+
+      <!-- Direct WhatsApp Action Button -->
+      <a href="https://wa.me/916387812688?text=Hi%20Digital%20Das%2C%20I%20want%20to%20discuss%20a%20project" 
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="WhatsApp Digital Das"
+         onclick="trackEvent('whatsapp_click', 'header')"
+         class="h-11 px-4 md:px-5 rounded-full bg-[#e8a13c] hover:bg-[#d48f2b] text-black font-bold text-sm flex items-center justify-center gap-2 transition-all transform active:scale-95 shadow-md shadow-[#e8a13c]/20 min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+        <svg class="w-4 h-4 fill-current text-black" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>Talk to Us</span>
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- =================================================================== -->
+  <!-- B. HERO SECTION (Dark Background Gradient)                          -->
+  <!-- =================================================================== -->
+  <section class="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-[#0d0c0a] via-[#16120e] to-[#241a0e] text-white overflow-hidden">
+    
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#e8a13c]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <div class="lg:col-span-7 flex flex-col justify-center animate-on-scroll">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#211a12] border border-[#3a3226] text-[#e8a13c] text-xs font-semibold tracking-wide w-fit mb-4 md:mb-6">
+            <span class="w-2 h-2 rounded-full bg-[#e8a13c] animate-pulse"></span>
+            <span>Trusted since 2015 · Lucknow</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-4 md:mb-6">
+            Get More Customers Online — <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#e8a13c] via-[#f7cb8b] to-[#e8a13c]">Not Just More Followers.</span>
+          </h1>
+
+          <!-- Mobile Founder Video Container (9:16 aspect ratio, edge-to-edge video fill) -->
+          <div class="block lg:hidden my-4">
+            <div class="relative w-full max-w-[300px] mx-auto aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
+              <video id="hero-video-mobile" 
+                     class="w-full h-full aspect-[9/16] object-cover" 
+                     poster="assets/videos/founder.jpg"
+                     preload="metadata" 
+                     playsinline 
+                     webkit-playsinline
+                     onerror="handleVideoError(this, 'Abhishek Das', 'Founder, Digital Das')">
+                <source src="assets/videos/founder.mp4" type="video/mp4" />
+                Your browser does not support native HTML5 video playback.
+              </video>
+
+              <!-- 64px Centered Gold Play Button -->
+              <button onclick="playHeroVideo('hero-video-mobile', this)" 
+                      aria-label="Play Founder Video"
+                      class="hero-play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#e8a13c] hover:bg-[#d48f2b] text-black flex items-center justify-center shadow-lg transition-all transform hover:scale-110 active:scale-95 focus:outline-none">
+                <svg class="w-7 h-7 fill-current text-black ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+
+              <!-- Soft 25% Gradient Scrim at Bottom for Control Readability -->
+              <div class="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+            </div>
+            
+            <!-- Founder Info & Reel Link Placed OUTSIDE Card -->
+            <div class="text-center mt-3">
+              <div class="inline-flex items-center justify-center gap-1.5">
+                <span class="font-bold text-[17px] text-white">Abhishek Das</span>
+                <svg class="w-4 h-4 text-[#e8a13c] fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <p class="text-sm text-[#c9c2b4] mt-0.5">Founder, Digital Das</p>
+              <div class="mt-1">
+                <a href="https://www.instagram.com/dastalkss/" target="_blank" rel="noopener noreferrer" aria-label="Digital Das on Instagram" onclick="trackEvent('instagram_click', 'hero_reel')" class="text-[11px] text-[#c9c2b4] hover:text-[#e8a13c] underline inline-flex items-center gap-1">
+                  <span>View original reel on Instagram</span>
+                  <svg class="w-3 h-3 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-base sm:text-lg text-[#c9c2b4] leading-relaxed mb-6 md:mb-8">
+            We build high-converting websites, ROI-focused Meta & Google Ad campaigns, and search engine strategies designed for real business revenue growth across Lucknow & India.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3.5 sm:gap-4 mb-8 md:mb-10">
+            <a href="#lead-form" 
+               class="h-13 px-6 py-3.5 rounded-xl bg-[#e8a13c] hover:bg-[#d48f2b] text-black font-extrabold text-base flex items-center justify-center gap-2 transition-all transform active:scale-95 shadow-lg shadow-[#e8a13c]/25 min-h-[48px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+              <span>Book a Free 15-Min Strategy Call</span>
+              <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+
+            <a href="https://wa.me/916387812688?text=Hi%20Digital%20Das%2C%20I%20want%20to%20discuss%20a%20project" 
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="WhatsApp Digital Das"
+               onclick="trackEvent('whatsapp_click', 'hero')"
+               class="h-13 px-6 py-3.5 rounded-xl bg-transparent hover:bg-[#211a12] text-white font-bold text-base border border-[#3a3226] hover:border-[#e8a13c] hover:text-[#e8a13c] flex items-center justify-center gap-2 transition-all min-h-[48px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+              <svg class="w-5 h-5 fill-current text-[#e8a13c]" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+
+          <div class="pt-6 border-t border-[#3a3226]/60 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center sm:text-left">
+            <div>
+              <div class="text-xl sm:text-2xl font-extrabold text-[#e8a13c]">150+</div>
+              <div class="text-xs text-[#c9c2b4] mt-0.5">Projects Delivered</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-extrabold text-[#e8a13c]">200+</div>
+              <div class="text-xs text-[#c9c2b4] mt-0.5">Happy Clients</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-extrabold text-[#e8a13c]">40+</div>
+              <div class="text-xs text-[#c9c2b4] mt-0.5">Team Members</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-extrabold text-[#e8a13c]">10+</div>
+              <div class="text-xs text-[#c9c2b4] mt-0.5">Years Experience</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Desktop Founder Video Card -->
+        <div class="hidden lg:col-span-5 lg:flex flex-col items-center justify-center animate-on-scroll">
+          <div class="relative w-full max-w-[340px] mx-auto aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
+            
+            <video id="hero-video-desktop" 
+                   class="w-full h-full aspect-[9/16] object-cover" 
+                   poster="assets/videos/founder.jpg"
+                   preload="metadata" 
+                   playsinline 
+                   webkit-playsinline
+                   onerror="handleVideoError(this, 'Abhishek Das', 'Founder, Digital Das')">
+              <source src="assets/videos/founder.mp4" type="video/mp4" />
+              Your browser does not support native HTML5 video playback.
+            </video>
+
+            <button onclick="playHeroVideo('hero-video-desktop', this)" 
+                    aria-label="Play Founder Video"
+                    class="hero-play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#e8a13c] hover:bg-[#d48f2b] text-black flex items-center justify-center shadow-gold-glow transition-all transform hover:scale-110 active:scale-95 focus:outline-none">
+              <svg class="w-7 h-7 fill-current text-black ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+
+            <div class="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          </div>
+
+          <!-- Info Outside Card -->
+          <div class="text-center mt-3">
+            <div class="inline-flex items-center justify-center gap-1.5">
+              <span class="font-bold text-[17px] text-white">Abhishek Das</span>
+              <svg class="w-4 h-4 text-[#e8a13c] fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p class="text-sm text-[#c9c2b4] mt-0.5">Founder, Digital Das</p>
+            <div class="mt-1">
+              <a href="https://www.instagram.com/dastalkss/" target="_blank" rel="noopener noreferrer" aria-label="Digital Das on Instagram" onclick="trackEvent('instagram_click', 'hero_reel_desktop')" class="text-xs text-[#c9c2b4] hover:text-[#e8a13c] underline inline-flex items-center gap-1.5 transition-colors">
+                <span>View original reel on Instagram</span>
+                <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =================================================================== -->
+  <!-- C. WHAT WE DO (4 Compact Cards)                                    -->
+  <!-- =================================================================== -->
+  <section class="py-16 md:py-24 bg-[#0d0c0a] text-white border-t border-[#3a3226]/40">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12 animate-on-scroll">
+        <span class="text-[#e8a13c] text-xs font-bold uppercase tracking-wider">Our Core Capabilities</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-1">High-Impact Services Built for Revenue</h2>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
+        
+        <div class="bg-[#15110c] border border-[#3a3226] rounded-2xl p-4 sm:p-6 hover:border-[#e8a13c]/50 transition-all shadow-md group animate-on-scroll">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#211a12] border border-[#3a3226] flex items-center justify-center mb-3 sm:mb-4 text-[#e8a13c] group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-1 tracking-tight">Web Development</h3>
+          <p class="text-xs sm:text-sm text-[#c9c2b4] leading-relaxed">Lightning-fast, mobile-first websites designed to turn visitors into paying customers.</p>
+        </div>
+
+        <div class="bg-[#15110c] border border-[#3a3226] rounded-2xl p-4 sm:p-6 hover:border-[#e8a13c]/50 transition-all shadow-md group animate-on-scroll">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#211a12] border border-[#3a3226] flex items-center justify-center mb-3 sm:mb-4 text-[#e8a13c] group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-1 tracking-tight">Digital Marketing</h3>
+          <p class="text-xs sm:text-sm text-[#c9c2b4] leading-relaxed">SEO & targeted Meta/Google Ads structured for maximum lead volume and high ROI.</p>
+        </div>
+
+        <div class="bg-[#15110c] border border-[#3a3226] rounded-2xl p-4 sm:p-6 hover:border-[#e8a13c]/50 transition-all shadow-md group animate-on-scroll">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#211a12] border border-[#3a3226] flex items-center justify-center mb-3 sm:mb-4 text-[#e8a13c] group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-1 tracking-tight">App Development</h3>
+          <p class="text-xs sm:text-sm text-[#c9c2b4] leading-relaxed">Custom Android & iOS applications engineered for seamless user experience and retention.</p>
+        </div>
+
+        <div class="bg-[#15110c] border border-[#3a3226] rounded-2xl p-4 sm:p-6 hover:border-[#e8a13c]/50 transition-all shadow-md group animate-on-scroll">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#211a12] border border-[#3a3226] flex items-center justify-center mb-3 sm:mb-4 text-[#e8a13c] group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-1 tracking-tight">Social & Content</h3>
+          <p class="text-xs sm:text-sm text-[#c9c2b4] leading-relaxed">Engaging social media management and high-converting video creative production.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =================================================================== -->
+  <!-- D. WHY DIGITAL DAS (4 Short Proof Points)                           -->
+  <!-- =================================================================== -->
+  <section class="py-14 md:py-20 bg-[#16120e] text-white border-y border-[#3a3226]/50">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+        
+        <div class="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-[#15110c]/50 border border-[#3a3226]/40 animate-on-scroll">
+          <div class="w-8 h-8 rounded-full bg-[#e8a13c]/15 text-[#e8a13c] flex items-center justify-center font-bold text-sm mb-2">1</div>
+          <h4 class="text-sm sm:text-base font-bold text-white mb-1">10+ Years Proven</h4>
+          <p class="text-xs text-[#c9c2b4]">Decade of market dominance & client satisfaction.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-[#15110c]/50 border border-[#3a3226]/40 animate-on-scroll">
+          <div class="w-8 h-8 rounded-full bg-[#e8a13c]/15 text-[#e8a13c] flex items-center justify-center font-bold text-sm mb-2">2</div>
+          <h4 class="text-sm sm:text-base font-bold text-white mb-1">40+ In-House Experts</h4>
+          <p class="text-xs text-[#c9c2b4]">Dedicated developers, strategists & media buyers.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-[#15110c]/50 border border-[#3a3226]/40 animate-on-scroll">
+          <div class="w-8 h-8 rounded-full bg-[#e8a13c]/15 text-[#e8a13c] flex items-center justify-center font-bold text-sm mb-2">3</div>
+          <h4 class="text-sm sm:text-base font-bold text-white mb-1">360° Digital Solutions</h4>
+          <p class="text-xs text-[#c9c2b4]">All tech & marketing needs managed under one roof.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-[#15110c]/50 border border-[#3a3226]/40 animate-on-scroll">
+          <div class="w-8 h-8 rounded-full bg-[#e8a13c]/15 text-[#e8a13c] flex items-center justify-center font-bold text-sm mb-2">4</div>
+          <h4 class="text-sm sm:text-base font-bold text-white mb-1">Performance & ROI</h4>
+          <p class="text-xs text-[#c9c2b4]">Transparent reporting & measurable lead growth.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =================================================================== -->
+  <!-- E. SUCCESS STORY CLIPS (3 Distinct Cards, Desktop Centered)        -->
+  <!-- =================================================================== -->
+  <section class="py-16 md:py-24 bg-[#f7f3ec] text-[#1a1815] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 animate-on-scroll">
+        <div>
+          <span class="text-[#e8a13c] text-xs font-bold uppercase tracking-wider">Trust Proof</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#1a1815] tracking-tight mt-1">Success Story Clips</h2>
+        </div>
+        
+        <div class="flex items-center gap-4 mt-3 md:mt-0">
+          <span class="md:hidden text-xs font-semibold text-[#6c665a]">← swipe →</span>
+          
+          <div class="hidden md:flex items-center gap-2">
+            <button onclick="scrollTestimonials(-360)" 
+                    aria-label="Previous Testimonials"
+                    class="w-10 h-10 rounded-full bg-[#f4f0e8] border border-[#e6dfd0] hover:bg-[#e8a13c] hover:text-black hover:border-[#e8a13c] flex items-center justify-center transition-all min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+              <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button onclick="scrollTestimonials(360)" 
+                    aria-label="Next Testimonials"
+                    class="w-10 h-10 rounded-full bg-[#f4f0e8] border border-[#e6dfd0] hover:bg-[#e8a13c] hover:text-black hover:border-[#e8a13c] flex items-center justify-center transition-all min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+              <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrollable Snap Container (300px mobile / 340px desktop, 3 centered cards on desktop) -->
+      <div id="testimonial-carousel" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x-mandatory no-scrollbar pb-6 pt-2 -mx-4 px-4 md:mx-0 md:px-0 md:justify-center">
+        
+        <!-- Card 1: Pooja (absolute.mp4 / absolute.jpg) -->
+        <div class="snap-card flex-shrink-0 w-[300px] md:w-[340px] flex flex-col gap-2.5">
+          <div class="relative w-full aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
+            <video id="video-pooja"
+                   class="reel testimonial-video w-full h-full aspect-[9/16] object-cover" 
+                   poster="assets/videos/absolute.jpg"
+                   preload="metadata" 
+                   playsinline 
+                   webkit-playsinline
+                   onerror="handleVideoError(this, 'Pooja', 'Client Testimonial')">
+              <source src="assets/videos/absolute.mp4" type="video/mp4" />
+              Your browser does not support native HTML5 video playback.
+            </video>
+            
+            <button onclick="playTestimonialVideo(this)" 
+                    aria-label="Play Pooja Video" 
+                    class="hero-play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#e8a13c] hover:bg-[#d48f2b] text-black flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-95">
+              <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            
+            <div class="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          </div>
+          
+          <div class="flex items-center justify-between px-1">
+            <span class="font-bold text-[17px] text-[#1a1815]">Pooja</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#e8a13c]/15 text-[#9a6417] text-xs font-bold">Client Testimonial</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Asif (client1.mp4 / client1.jpg) -->
+        <div class="snap-card flex-shrink-0 w-[300px] md:w-[340px] flex flex-col gap-2.5">
+          <div class="relative w-full aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
+            <video id="video-asif"
+                   class="reel testimonial-video w-full h-full aspect-[9/16] object-cover" 
+                   poster="assets/videos/client1.jpg"
+                   preload="metadata" 
+                   playsinline 
+                   webkit-playsinline
+                   onerror="handleVideoError(this, 'Asif', 'Client Testimonial')">
+              <source src="assets/videos/client1.mp4" type="video/mp4" />
+              Your browser does not support native HTML5 video playback.
+            </video>
+            
+            <button onclick="playTestimonialVideo(this)" 
+                    aria-label="Play Asif Video" 
+                    class="hero-play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#e8a13c] hover:bg-[#d48f2b] text-black flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-95">
+              <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            
+            <div class="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          </div>
+          
+          <div class="flex items-center justify-between px-1">
+            <span class="font-bold text-[17px] text-[#1a1815]">Asif</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#e8a13c]/15 text-[#9a6417] text-xs font-bold">Client Testimonial</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Director Story (director.mp4 / director.jpg) -->
+        <div class="snap-card flex-shrink-0 w-[300px] md:w-[340px] flex flex-col gap-2.5">
+          <div class="relative w-full aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
+            <video id="video-director"
+                   class="reel testimonial-video w-full h-full aspect-[9/16] object-cover" 
+                   poster="assets/videos/director.jpg"
+                   preload="metadata" 
+                   playsinline 
+                   webkit-playsinline
+                   onerror="handleVideoError(this, 'Director Story', 'Client Testimonial')">
+              <source src="assets/videos/director.mp4" type="video/mp4" />
+              Your browser does not support native HTML5 video playback.
+            </video>
+            
+            <button onclick="playTestimonialVideo(this)" 
+                    aria-label="Play Director Story Video" 
+                    class="hero-play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#e8a13c] hover:bg-[#d48f2b] text-black flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-95">
+              <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            
+            <div class="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          </div>
+          
+          <div class="flex items-center justify-between px-1">
+            <span class="font-bold text-[17px] text-[#1a1815]">Director Story</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#e8a13c]/15 text-[#9a6417] text-xs font-bold">Client Testimonial</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mobile 3 Dots Indicator -->
+      <div class="flex md:hidden justify-center items-center gap-1.5 mt-2">
+        <span class="w-2 h-2 rounded-full bg-[#e8a13c]"></span>
+        <span class="w-2 h-2 rounded-full bg-[#e6dfd0]"></span>
+        <span class="w-2 h-2 rounded-full bg-[#e6dfd0]"></span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =================================================================== -->
+  <!-- F. LEAD FORM — CONVERSION SECTION (Cream Background)               -->
+  <!-- =================================================================== -->
+  <section id="lead-form" class="py-16 md:py-24 bg-[#f7f3ec] text-[#1a1815] border-t border-[#e6dfd0]">
+    <div class="max-w-3xl mx-auto px-4 md:px-8">
+      
+      <div class="bg-[#f4f0e8] border border-[#e6dfd0] rounded-3xl p-6 sm:p-10 shadow-card-soft animate-on-scroll">
+        
+        <div class="text-center mb-8">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#1a1815] tracking-tight">Tell Us About Your Project</h2>
+          <p class="text-sm sm:text-base text-[#6c665a] mt-2">Fill in your details below to schedule a free 15-minute strategy call with our team.</p>
+        </div>
+
+        <div id="form-container">
+          
+          <form id="digitaldas-lead-form" onsubmit="handleFormSubmit(event)" novalidate class="space-y-4 sm:space-y-5">
+            
+            <!-- Web3Forms Hidden Required Fields -->
+            <input type="hidden" name="access_key" value="6bf5c9e4-a5d7-4e3d-8198-ddfadc1868cc" />
+            <input type="hidden" name="subject" value="New Lead from Digital Das Landing Page" />
+            <input type="hidden" name="from_name" value="Digital Das Landing Page" />
+            
+            <!-- Honeypot Botcheck (Hidden from humans) -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none;" />
+
+            <!-- Hidden Context Fields -->
+            <input type="hidden" id="utm_source" name="utm_source" value="" />
+            <input type="hidden" id="utm_medium" name="utm_medium" value="" />
+            <input type="hidden" id="utm_campaign" name="utm_campaign" value="" />
+            <input type="hidden" id="utm_term" name="utm_term" value="" />
+            <input type="hidden" id="utm_content" name="utm_content" value="" />
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="lead-name" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">Full Name *</label>
+                <input type="text" 
+                       id="lead-name" 
+                       name="name" 
+                       required
+                       placeholder="e.g. Rahul Sharma" 
+                       class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base placeholder-[#6c665a]/60 transition-colors" />
+                <p id="err-name" class="hidden text-xs text-red-600 font-semibold mt-1">Please enter your full name.</p>
+              </div>
+
+              <div>
+                <label for="lead-phone" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">Phone Number (10 Digits) *</label>
+                <input type="tel" 
+                       id="lead-phone" 
+                       name="phone" 
+                       required
+                       inputmode="numeric"
+                       pattern="[0-9]{10}"
+                       maxlength="10"
+                       placeholder="e.g. 9876543210" 
+                       class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base placeholder-[#6c665a]/60 transition-colors" />
+                <p id="err-phone" class="hidden text-xs text-red-600 font-semibold mt-1">Please enter a valid 10-digit mobile number.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="lead-email" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">Email Address *</label>
+                <input type="email" 
+                       id="lead-email" 
+                       name="email" 
+                       required
+                       placeholder="name@company.com" 
+                       class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base placeholder-[#6c665a]/60 transition-colors" />
+                <p id="err-email" class="hidden text-xs text-red-600 font-semibold mt-1">Please enter a valid email address.</p>
+              </div>
+
+              <div>
+                <label for="lead-service" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">Service Required *</label>
+                <select id="lead-service" 
+                        name="service" 
+                        required
+                        class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base transition-colors">
+                  <option value="" disabled selected>Select a Service</option>
+                  <option value="Website Development">Website Development</option>
+                  <option value="SEO Optimization">SEO Optimization</option>
+                  <option value="Google Ads">Google Ads</option>
+                  <option value="Meta Ads">Meta Ads (Facebook & Instagram)</option>
+                  <option value="Social Media Marketing">Social Media Marketing</option>
+                  <option value="App Development">App Development</option>
+                  <option value="Other">Other / Full 360° Digital</option>
+                </select>
+                <p id="err-service" class="hidden text-xs text-red-600 font-semibold mt-1">Please select a service.</p>
+              </div>
+            </div>
+
+            <div>
+              <label for="lead-budget" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">Estimated Monthly Budget *</label>
+              <select id="lead-budget" 
+                      name="budget" 
+                      required
+                      class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base transition-colors">
+                <option value="" disabled selected>Select Budget Range</option>
+                <option value="₹10k–25k">₹10,000 – ₹25,000 / month</option>
+                <option value="₹25k–50k">₹25,000 – ₹50,000 / month</option>
+                <option value="₹50k–1L">₹50,000 – ₹1,00,000 / month</option>
+                <option value="₹1L+">₹1,00,000+ / month</option>
+              </select>
+              <p id="err-budget" class="hidden text-xs text-red-600 font-semibold mt-1">Please select your estimated budget.</p>
+            </div>
+
+            <div>
+              <label for="lead-message" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">Project Details (Optional)</label>
+              <textarea id="lead-message" 
+                        name="message" 
+                        rows="3" 
+                        placeholder="Tell us briefly about your business goal..." 
+                        class="w-full p-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base placeholder-[#6c665a]/60 transition-colors"></textarea>
+            </div>
+
+            <button type="submit" 
+                    id="submit-btn"
+                    class="w-full h-14 rounded-xl bg-[#e8a13c] hover:bg-[#d48f2b] text-black font-extrabold text-lg flex items-center justify-center gap-2 transition-all transform active:scale-[0.99] shadow-md shadow-[#e8a13c]/30 min-h-[48px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+              <span id="btn-text">Get My Free Strategy Call</span>
+              <svg id="btn-icon" class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+
+            <!-- Inline Server Error Alert Container -->
+            <div id="server-error-container" class="hidden"></div>
+
+          </form>
+
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-[#e6dfd0] flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-[#6c665a]">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-[#e8a13c] stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>No spam guaranteed</span>
+          </div>
+          <span class="text-[#e6dfd0]">•</span>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-[#e8a13c] stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Reply within 24 hours</span>
+          </div>
+          <span class="text-[#e6dfd0]">•</span>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-[#e8a13c] stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Free 15-min consultation</span>
+          </div>
+        </div>
+
+        <!-- Prominent Head Office Address & Tappable Contact Links -->
+        <div class="mt-8 pt-6 border-t border-[#e6dfd0] text-center">
+          <p class="text-xs font-bold text-[#6c665a] uppercase tracking-wider mb-3">Head Office & Contact</p>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-sm font-bold text-[#1a1815] mb-3">
+            <a href="tel:+916387812688" 
+               aria-label="Call Digital Das" 
+               onclick="trackEvent('call_click', 'contact_section')" 
+               class="hover:text-[#e8a13c] flex items-center gap-2 min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c] rounded-lg px-2">
+              <svg class="w-4 h-4 text-[#e8a13c] fill-current" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span>+91 6387812688</span>
+            </a>
+
+            <span class="hidden sm:inline text-[#e6dfd0]">•</span>
+
+            <a href="https://wa.me/916387812688?text=Hi%20Digital%20Das%2C%20I%20want%20to%20discuss%20a%20project" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="WhatsApp Digital Das" 
+               onclick="trackEvent('whatsapp_click', 'contact_section')" 
+               class="hover:text-[#e8a13c] flex items-center gap-2 min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c] rounded-lg px-2">
+              <svg class="w-4 h-4 text-[#25D366] fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+
+          <a href="https://maps.google.com/?q=First+Floor,+B-3/11,+Vibhuti+Khand,+Gomti+Nagar,+Lucknow+226010" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="text-xs text-[#6c665a] hover:text-[#e8a13c] font-medium max-w-sm mx-auto underline flex items-center justify-center gap-1 focus:outline-none focus:ring-2 focus:ring-[#e8a13c] rounded p-1">
+            <span>First Floor, B-3/11, Vibhuti Khand, Gomti Nagar, Lucknow – 226010</span>
+            <svg class="w-3 h-3 stroke-current fill-none shrink-0" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =================================================================== -->
+  <!-- G. STICKY BOTTOM CTA BAR (Mobile Only, <768px)                      -->
+  <!-- =================================================================== -->
+  <div id="sticky-bottom-bar" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0d0c0a]/95 backdrop-blur-md border-t border-[#3a3226] px-3 py-2 transition-transform duration-300 h-[60px] pb-[calc(8px+env(safe-area-inset-bottom))]">
+    <div class="grid grid-cols-2 gap-2 h-full items-center">
+      
+      <a href="https://wa.me/916387812688?text=Hi%20Digital%20Das%2C%20I%20want%20to%20discuss%20a%20project" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="WhatsApp Digital Das"
+         onclick="trackEvent('whatsapp_click', 'mobile_sticky_bar')"
+         class="h-11 rounded-xl bg-[#e8a13c] text-black font-bold text-sm flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-transform min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+        <svg class="w-4 h-4 fill-current text-black" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>WhatsApp</span>
+      </a>
+
+      <a href="tel:+916387812688" 
+         aria-label="Call Digital Das"
+         onclick="trackEvent('call_click', 'mobile_sticky_bar')"
+         class="h-11 rounded-xl bg-transparent border border-[#3a3226] text-white font-bold text-sm flex items-center justify-center gap-1.5 active:scale-95 transition-transform min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+        <svg class="w-4 h-4 fill-current text-[#e8a13c]" viewBox="0 0 24 24">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        <span>Call Now</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUBBLE (Bottom-Right) -->
+  <a href="https://wa.me/916387812688?text=Hi%20Digital%20Das%2C%20I%20want%20to%20discuss%20a%20project" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="WhatsApp Digital Das"
+     onclick="trackEvent('whatsapp_click', 'floating_bubble')"
+     class="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-40 w-14 h-14 min-h-[44px] min-w-[44px] rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-[#25D366]/50">
+    <svg class="w-8 h-8 fill-current text-white" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
+
+  <!-- =================================================================== -->
+  <!-- H. COMPACT FOOTER                                                  -->
+  <!-- =================================================================== -->
+  <footer class="bg-[#0d0c0a] text-white py-12 border-t border-[#3a3226]/60">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#3a3226]/40">
+        
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="bg-[#f7f3ec] p-0.5 rounded-full inline-flex items-center justify-center shadow-sm">
+              <img src="assets/logo.png"
+                   loading="eager"
+                   width="56"
+                   height="56"
+                   alt="Digital Das Logo"
+                   class="w-[56px] h-[56px] aspect-square rounded-full object-contain"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="hidden items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-[#e8a13c] text-black font-extrabold flex items-center justify-center text-sm">DD</div>
+              </div>
+            </div>
+            <span class="text-white font-extrabold text-xl tracking-tight">Digital Das</span>
+          </div>
+
+          <p class="text-xs text-[#c9c2b4] max-w-sm mb-2">
+            Lucknow's premier performance digital marketing & software agency. Turning clicks into revenue since 2015.
+          </p>
+
+          <div class="text-[11px] text-[#c9c2b4]/80">
+            <span class="font-bold text-[#e8a13c]">Branch Office:</span> 
+            <a href="https://maps.google.com/?q=D-217+B,+First+Floor,+Vibhuti+Khand,+Gomti+Nagar,+Lucknow+226010" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="hover:text-white underline ml-1 focus:outline-none focus:ring-2 focus:ring-[#e8a13c] rounded">
+              D-217 B, First Floor, Vibhuti Khand, Gomti Nagar, Lucknow – 226010
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- WhatsApp Icon -->
+          <a href="https://wa.me/916387812688?text=Hi%20Digital%20Das%2C%20I%20want%20to%20discuss%20a%20project" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="WhatsApp Digital Das" 
+             onclick="trackEvent('whatsapp_click', 'footer')"
+             class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full bg-[#15110c] border border-[#3a3226] hover:border-[#e8a13c] text-[#c9c2b4] hover:text-[#e8a13c] flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+
+          <!-- Instagram Icon -->
+          <a href="https://www.instagram.com/dastalkss/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="Digital Das on Instagram" 
+             onclick="trackEvent('instagram_click', 'footer')"
+             class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full bg-[#15110c] border border-[#3a3226] hover:border-[#e8a13c] text-[#c9c2b4] hover:text-[#e8a13c] flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+
+          <!-- LinkedIn Icon -->
+          <a href="https://in.linkedin.com/company/digitaldas" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="Digital Das on LinkedIn" 
+             onclick="trackEvent('linkedin_click', 'footer')"
+             class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full bg-[#15110c] border border-[#3a3226] hover:border-[#e8a13c] text-[#c9c2b4] hover:text-[#e8a13c] flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+
+          <!-- YouTube Icon -->
+          <a href="https://youtube.com/@Dastalks." 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="Digital Das on YouTube" 
+             onclick="trackEvent('youtube_click', 'footer')"
+             class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full bg-[#15110c] border border-[#3a3226] hover:border-[#e8a13c] text-[#c9c2b4] hover:text-[#e8a13c] flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+          </a>
+
+          <!-- X Twitter Icon -->
+          <a href="https://x.com/pratishekd" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="Digital Das on X" 
+             onclick="trackEvent('x_click', 'footer')"
+             class="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full bg-[#15110c] border border-[#3a3226] hover:border-[#e8a13c] text-[#c9c2b4] hover:text-[#e8a13c] flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#c9c2b4]/70 gap-2">
+        <p>© <span id="current-year">2026</span> Digital Das. All rights reserved.</p>
+        <p>Lucknow, Uttar Pradesh, India • info@digitaldas.com</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =================================================================== -->
+  <!-- VANILLA JAVASCRIPT CONVERSION & WEB3FORMS CONTROLLER SYSTEM        -->
+  <!-- =================================================================== -->
+  <script>
+    // TODO: founder.mp4, absolute.mp4, client1.mp4 and director.mp4 must be uploaded to the digitaldas.in WordPress media library, and VIDEO_BASE updated to the real upload path.
+    const VIDEO_BASE = "https://digitaldas.in/wp-content/uploads/2026/01/";
+
+    // Testimonials Data Array (Poster JPGs stay in local repo, MP4s load from VIDEO_BASE)
+    const testimonials = [
+      { file: `${VIDEO_BASE}absolute.mp4`, poster: "assets/videos/absolute.jpg", name: "Pooja", label: "Client Testimonial" },
+      { file: `${VIDEO_BASE}client1.mp4`, poster: "assets/videos/client1.jpg", name: "Asif", label: "Client Testimonial" },
+      { file: `${VIDEO_BASE}director.mp4`, poster: "assets/videos/director.jpg", name: "Director Story", label: "Client Testimonial" }
+    ];
+
+    // 1. Analytics & Event Tracking Layer
+    window.dataLayer = window.dataLayer || [];
+    function trackEvent(eventName, label) {
+      const payload = {
+        event: eventName,
+        event_category: 'Lead Generation',
+        event_label: label || 'default',
+        timestamp: new Date().toISOString()
+      };
+      window.dataLayer.push(payload);
+      console.log('[Analytics Event Fired]', payload);
+    }
+
+    // 2. UTM Parameter Parser & Dynamic Year
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+      
+      utmFields.forEach(field => {
+        const value = urlParams.get(field);
+        const inputElem = document.getElementById(field);
+        if (value && inputElem) {
+          inputElem.value = value;
+        }
+      });
+
+      const yearElem = document.getElementById('current-year');
+      if (yearElem) yearElem.textContent = new Date().getFullYear();
+    });
+
+    // 3. Header Blur Backdrop Effect on Scroll (> 40px)
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        header.classList.add('bg-[#0d0c0a]/85', 'backdrop-blur-md', 'border-[#3a3226]/50', 'shadow-md');
+        header.classList.remove('border-transparent');
+      } else {
+        header.classList.remove('bg-[#0d0c0a]/85', 'backdrop-blur-md', 'border-[#3a3226]/50', 'shadow-md');
+        header.classList.add('border-transparent');
+      }
+    }, { passive: true });
+
+    // 4. Video Controller System (Only 1 Active Video At A Time, Sound On, Threshold 0.25)
+    function pauseAllVideos() {
+      const videos = document.querySelectorAll('video');
+      videos.forEach(v => {
+        if (!v.paused) {
+          v.pause();
+        }
+      });
+      document.querySelectorAll('.hero-play-btn').forEach(btn => btn.classList.remove('opacity-0', 'pointer-events-none'));
+    }
+
+    function playHeroVideo(videoId, btnElem) {
+      pauseAllVideos();
+      const video = document.getElementById(videoId);
+      if (video) {
+        video.muted = false;
+        video.controls = true;
+        video.play().then(() => {
+          if (btnElem) btnElem.classList.add('opacity-0', 'pointer-events-none');
+          trackEvent('founder_video_play', videoId);
+        }).catch(err => {
+          console.warn('Video play prevented:', err);
+        });
+      }
+    }
+
+    function playTestimonialVideo(btnElem) {
+      pauseAllVideos();
+      const card = btnElem.closest('.snap-card') || btnElem.closest('.relative');
+      const video = card ? card.querySelector('video') : null;
+      if (video) {
+        video.muted = false;
+        video.controls = true;
+        video.play().then(() => {
+          btnElem.classList.add('opacity-0', 'pointer-events-none');
+          trackEvent('client_video_play', video.id || 'testimonial');
+        }).catch(err => {
+          console.warn('Testimonial video play prevented:', err);
+        });
+      }
+    }
+
+    function handleVideoError(videoElem, title, subtitle) {
+      console.warn('[Video Load Failed]', videoElem.currentSrc);
+      const cardElem = videoElem.closest('.relative') || videoElem.parentNode;
+      const posterSrc = videoElem.getAttribute('poster') || 'assets/videos/founder.jpg';
+      
+      if (cardElem) {
+        cardElem.innerHTML = `
+          <div class="w-full h-full relative bg-[#15110c] flex flex-col justify-end p-4 text-white overflow-hidden rounded-2xl">
+            <img src="${posterSrc}" alt="${title}" class="absolute inset-0 w-full h-full object-cover opacity-70" />
+            <div class="relative z-10 bg-black/80 backdrop-blur-sm p-3 rounded-xl border border-[#3a3226]">
+              <p class="font-bold text-xs text-white mb-0.5">${title || 'Client Story'}</p>
+              <p class="text-[10px] text-[#c9c2b4] mb-2">${subtitle || 'Watch Reel'}</p>
+              <a href="https://www.instagram.com/dastalkss/" target="_blank" rel="noopener noreferrer" aria-label="Digital Das on Instagram" onclick="trackEvent('instagram_click', 'video_fallback')" class="inline-flex items-center gap-1 text-[11px] text-[#e8a13c] font-bold underline">
+                <span>Watch on Instagram</span>
+                <svg class="w-3 h-3 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // Scroll-out Observer (Threshold 0.25)
+    const videoScrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          const video = entry.target;
+          if (!video.paused) {
+            video.pause();
+            console.log('[Video Paused on Scroll-Out]', video.id || 'testimonial-video');
+          }
+        }
+      });
+    }, { threshold: 0.25 });
+
+    document.querySelectorAll('video').forEach(video => {
+      videoScrollObserver.observe(video);
+      video.addEventListener('play', () => {
+        document.querySelectorAll('video').forEach(otherVideo => {
+          if (otherVideo !== video && !otherVideo.paused) {
+            otherVideo.pause();
+          }
+        });
+      });
+    });
+
+    // 5. Testimonial Carousel Scroll Controls
+    function scrollTestimonials(offset) {
+      const container = document.getElementById('testimonial-carousel');
+      if (container) {
+        container.scrollBy({ left: offset, behavior: 'smooth' });
+      }
+    }
+
+    // 6. Web3Forms Asynchronous Lead Form Handler & Validation
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const formElem = document.getElementById('digitaldas-lead-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnIcon = document.getElementById('btn-icon');
+      const serverErrContainer = document.getElementById('server-error-container');
+
+      // Check Honeypot Botcheck (Silently abort if filled)
+      const botcheckInput = formElem.querySelector('input[name="botcheck"]');
+      if (botcheckInput && botcheckInput.checked) {
+        console.warn('[Botcheck Triggered] Submission silently aborted.');
+        return;
+      }
+      
+      const nameInput = document.getElementById('lead-name');
+      const phoneInput = document.getElementById('lead-phone');
+      const emailInput = document.getElementById('lead-email');
+      const serviceInput = document.getElementById('lead-service');
+      const budgetInput = document.getElementById('lead-budget');
+
+      const errName = document.getElementById('err-name');
+      const errPhone = document.getElementById('err-phone');
+      const errEmail = document.getElementById('err-email');
+      const errService = document.getElementById('err-service');
+      const errBudget = document.getElementById('err-budget');
+
+      let isValid = true;
+      serverErrContainer.classList.add('hidden');
+
+      if (!nameInput.value.trim()) {
+        errName.classList.remove('hidden');
+        nameInput.classList.add('border-red-600');
+        isValid = false;
+      } else {
+        errName.classList.add('hidden');
+        nameInput.classList.remove('border-red-600');
+      }
+
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(phoneInput.value.trim())) {
+        errPhone.classList.remove('hidden');
+        phoneInput.classList.add('border-red-600');
+        isValid = false;
+      } else {
+        errPhone.classList.add('hidden');
+        phoneInput.classList.remove('border-red-600');
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value.trim())) {
+        errEmail.classList.remove('hidden');
+        emailInput.classList.add('border-red-600');
+        isValid = false;
+      } else {
+        errEmail.classList.add('hidden');
+        emailInput.classList.remove('border-red-600');
+      }
+
+      if (!serviceInput.value) {
+        errService.classList.remove('hidden');
+        serviceInput.classList.add('border-red-600');
+        isValid = false;
+      } else {
+        errService.classList.add('hidden');
+        serviceInput.classList.remove('border-red-600');
+      }
+
+      if (!budgetInput.value) {
+        errBudget.classList.remove('hidden');
+        budgetInput.classList.add('border-red-600');
+        isValid = false;
+      } else {
+        errBudget.classList.add('hidden');
+        budgetInput.classList.remove('border-red-600');
+      }
+
+      if (!isValid) return;
+
+      // Enable Loading Button State
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+      btnText.textContent = 'Sending…';
+      btnIcon.outerHTML = `
+        <svg id="btn-icon" class="animate-spin -ml-1 mr-2 h-5 w-5 text-black inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      `;
+
+      // Build Form Payload & Context Fields
+      const formData = new FormData(formElem);
+      const payloadObject = Object.fromEntries(formData);
+      payloadObject.page_url = window.location.href;
+      payloadObject.submitted_at = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+      // Asynchronous JSON POST to Web3Forms Endpoint
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payloadObject)
+      })
+      .then(async (response) => {
+        const data = await response.json();
+        if (response.status === 200 && data.success) {
+          // Confirmed Success: Fire dataLayer Event & Render In-Page Thank-You Card
+          trackEvent('lead_form_submit', 'primary_form');
+          
+          const submittedName = nameInput.value.trim();
+          const formContainer = document.getElementById('form-container');
+          formContainer.innerHTML = `
+            <div class="text-center py-8 px-4 bg-white rounded-2xl border border-[#e8a13c]/40 shadow-card-soft animate-on-scroll is-visible">
+              <div class="w-16 h-16 rounded-full bg-[#e8a13c]/20 text-[#e8a13c] flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 class="text-2xl font-extrabold text-[#1a1815] tracking-tight mb-2">Thank You, ${submittedName}!</h3>
+              <p class="text-sm text-[#6c665a] max-w-md mx-auto mb-6">
+                We have received your project details. Senior Strategist from Digital Das will call you within 24 hours.
+              </p>
+              <a href="https://wa.me/916387812688?text=Hi%20Digital%20Das%2C%20I%20want%20to%20discuss%20a%20project" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 aria-label="WhatsApp Digital Das"
+                 onclick="trackEvent('whatsapp_click', 'thank_you_card')"
+                 class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-xl bg-[#e8a13c] hover:bg-[#d48f2b] text-black font-extrabold text-sm transition-all shadow-md min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+                <svg class="w-4 h-4 fill-current text-black" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span>Instant Chat on WhatsApp</span>
+              </a>
+            </div>
+          `;
+        } else {
+          // Failure: Show Muted Red Inline Error & Restore Button
+          showServerError();
+        }
+      })
+      .catch((error) => {
+        console.error('[Web3Forms Fetch Error]', error);
+        showServerError();
+      });
+
+      function showServerError() {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+        document.getElementById('btn-text').textContent = 'Get My Free Strategy Call';
+        document.getElementById('btn-icon').outerHTML = `
+          <svg id="btn-icon" class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        `;
+
+        serverErrContainer.classList.remove('hidden');
+        serverErrContainer.innerHTML = `
+          <div class="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium text-center">
+            Something went wrong. Please WhatsApp us at 
+            <a href="https://wa.me/916387812688?text=Hi%20Digital%20Das%2C%20I%20want%20to%20discuss%20a%20project" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="WhatsApp Digital Das"
+               onclick="trackEvent('whatsapp_click', 'form_error_fallback')"
+               class="font-bold underline text-red-800 hover:text-red-900 ml-1">
+              +91 6387812688
+            </a>
+          </div>
+        `;
+      }
+    }
+
+    // 7. Auto-Hide Sticky Bar During Focus
+    const stickyBar = document.getElementById('sticky-bottom-bar');
+    const formElem = document.getElementById('digitaldas-lead-form');
+
+    if (stickyBar && formElem) {
+      formElem.addEventListener('focusin', () => stickyBar.classList.add('translate-y-full'));
+      formElem.addEventListener('focusout', () => stickyBar.classList.remove('translate-y-full'));
+    }
+
+    // 8. Intersection Observer Fade & Rise Animations
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
