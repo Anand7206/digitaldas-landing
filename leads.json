@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lead_1788349872620",
+    "fullName": "Test Client",
+    "phone": "+919876543210",
+    "businessName": "Test Enterprise",
+    "email": "test@client.com",
+    "industry": "Real Estate",
+    "service": "Meta Ads",
+    "budget": "50k",
+    "contactMethod": "WhatsApp",
+    "query": "Testing email delivery to dastalkss@gmail.com",
+    "submittedAt": "2026-09-02T17:21:12.620696",
+    "recipient": "dastalkss@gmail.com",
+    "source": "Digital Das Lead Generation Landing Page"
+  },
+  {
+    "id": "lead_1788779442659",
+    "fullName": "Verify Removal",
+    "phone": "+919876543210",
+    "businessName": "Test Inc",
+    "email": "test@test.com",
+    "industry": "Real Estate",
+    "service": "Meta Ads",
+    "budget": "50k",
+    "contactMethod": "WhatsApp",
+    "query": "Verification call",
+    "submittedAt": "2026-09-07T16:40:42.659678",
+    "recipient": "dastalkss@gmail.com",
+    "source": "Digital Das Lead Generation Landing Page"
+  }
+]
