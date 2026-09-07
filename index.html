@@ -267,7 +267,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
                      preload="metadata" 
                      playsinline 
                      webkit-playsinline
-                     onerror="handleVideoError(this, 'Pratishek Das', 'Founder, Digital Das')">
+                     onerror="this.poster='https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg'; handleVideoError(this, 'Pratishek Das', 'Founder, Digital Das')">
                 <source src="assets/videos/founder.mp4" type="video/mp4" />
                 Your browser does not support native HTML5 video playback.
               </video>
@@ -354,7 +354,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
                    preload="metadata" 
                    playsinline 
                    webkit-playsinline
-                   onerror="handleVideoError(this, 'Pratishek Das', 'Founder, Digital Das')">
+                   onerror="this.poster='https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg'; handleVideoError(this, 'Pratishek Das', 'Founder, Digital Das')">
               <source src="assets/videos/founder.mp4" type="video/mp4" />
               Your browser does not support native HTML5 video playback.
             </video>
@@ -519,7 +519,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
                    preload="metadata" 
                    playsinline 
                    webkit-playsinline
-                   onerror="handleVideoError(this, 'Pooja', 'Client Testimonial')">
+                   onerror="this.poster='https://digitaldas.in/wp-content/uploads/2025/11/2nd-reel.jpg'; handleVideoError(this, 'Pooja', 'Client Testimonial')">
               <source src="assets/videos/absolute.mp4" type="video/mp4" />
               Your browser does not support native HTML5 video playback.
             </video>
@@ -548,7 +548,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
                    preload="metadata" 
                    playsinline 
                    webkit-playsinline
-                   onerror="handleVideoError(this, 'Asif', 'Client Testimonial')">
+                   onerror="this.poster='https://digitaldas.in/wp-content/uploads/2025/11/3rd-reel.jpg'; handleVideoError(this, 'Asif', 'Client Testimonial')">
               <source src="assets/videos/client1.mp4" type="video/mp4" />
               Your browser does not support native HTML5 video playback.
             </video>
@@ -577,7 +577,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
                    preload="metadata" 
                    playsinline 
                    webkit-playsinline
-                   onerror="handleVideoError(this, 'Director Story', 'Client Testimonial')">
+                   onerror="this.poster='https://digitaldas.in/wp-content/uploads/2025/11/4th-reel.jpg'; handleVideoError(this, 'Director Story', 'Client Testimonial')">
               <source src="assets/videos/director.mp4" type="video/mp4" />
               Your browser does not support native HTML5 video playback.
             </video>
@@ -1040,28 +1040,20 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
 
     function handleVideoError(videoElem, title, subtitle) {
       console.warn('[Video Load Failed]', videoElem.currentSrc);
-      const sources = videoElem.querySelectorAll('source');
-      const currentSrc = videoElem.currentSrc || '';
-      
-      if (sources.length > 1) {
-        for (let i = 0; i < sources.length; i++) {
-          const s = sources[i].getAttribute('src');
-          if (s && !currentSrc.endsWith(s) && !currentSrc.includes(s)) {
-            videoElem.src = s;
-            videoElem.removeAttribute('onerror');
-            videoElem.load();
-            return;
-          }
-        }
-      }
-
       const cardElem = videoElem.closest('.relative') || videoElem.parentNode;
-      const posterSrc = videoElem.getAttribute('poster') || 'https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg';
+      let posterSrc = videoElem.getAttribute('poster');
+      
+      if (!posterSrc || posterSrc.includes('assets/')) {
+        if (title.includes('Pooja')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/2nd-reel.jpg';
+        else if (title.includes('Asif')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/3rd-reel.jpg';
+        else if (title.includes('Director')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/4th-reel.jpg';
+        else posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg';
+      }
       
       if (cardElem) {
         cardElem.innerHTML = `
           <div class="w-full h-full relative bg-[#15110c] flex flex-col justify-end p-4 text-white overflow-hidden rounded-2xl">
-            <img src="${posterSrc}" alt="${title}" class="absolute inset-0 w-full h-full object-cover opacity-80" />
+            <img src="${posterSrc}" alt="${title}" class="absolute inset-0 w-full h-full object-cover opacity-85" />
             <div class="relative z-10 bg-black/80 backdrop-blur-sm p-3 rounded-xl border border-[#3a3226]">
               <p class="font-bold text-xs text-white mb-0.5">${title || 'Client Story'}</p>
               <p class="text-[10px] text-[#c9c2b4] mb-2">${subtitle || 'Watch Reel'}</p>
