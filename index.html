@@ -263,7 +263,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
             <div class="relative w-full max-w-[300px] mx-auto aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
               <video id="hero-video-mobile" 
                      class="w-full h-full aspect-[9/16] object-cover" 
-                     poster="https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg"
+                     poster="assets/videos/founder.jpg"
                      preload="metadata" 
                      playsinline 
                      webkit-playsinline
@@ -350,7 +350,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
             
             <video id="hero-video-desktop" 
                    class="w-full h-full aspect-[9/16] object-cover" 
-                   poster="https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg"
+                   poster="assets/videos/founder.jpg"
                    preload="metadata" 
                    playsinline 
                    webkit-playsinline
@@ -515,7 +515,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
           <div class="relative w-full aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
             <video id="video-pooja"
                    class="reel testimonial-video w-full h-full aspect-[9/16] object-cover" 
-                   poster="https://digitaldas.in/wp-content/uploads/2025/11/2nd-reel.jpg"
+                   poster="assets/videos/absolute.jpg"
                    preload="metadata" 
                    playsinline 
                    webkit-playsinline
@@ -544,7 +544,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
           <div class="relative w-full aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
             <video id="video-asif"
                    class="reel testimonial-video w-full h-full aspect-[9/16] object-cover" 
-                   poster="https://digitaldas.in/wp-content/uploads/2025/11/3rd-reel.jpg"
+                   poster="assets/videos/client1.jpg"
                    preload="metadata" 
                    playsinline 
                    webkit-playsinline
@@ -573,7 +573,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
           <div class="relative w-full aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
             <video id="video-director"
                    class="reel testimonial-video w-full h-full aspect-[9/16] object-cover" 
-                   poster="https://digitaldas.in/wp-content/uploads/2025/11/4th-reel.jpg"
+                   poster="assets/videos/director.jpg"
                    preload="metadata" 
                    playsinline 
                    webkit-playsinline
@@ -947,11 +947,11 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
   <!-- VANILLA JAVASCRIPT CONVERSION & WEB3FORMS CONTROLLER SYSTEM        -->
   <!-- =================================================================== -->
   <script>
-    // Testimonials Data Array (Live CDN fallbacks for 100% reliable remote playback)
+    // Testimonials Data Array
     const testimonials = [
-      { file: "assets/videos/absolute.mp4", poster: "https://digitaldas.in/wp-content/uploads/2025/11/2nd-reel.jpg", name: "Pooja", label: "Client Testimonial" },
-      { file: "assets/videos/client1.mp4", poster: "https://digitaldas.in/wp-content/uploads/2025/11/3rd-reel.jpg", name: "Asif", label: "Client Testimonial" },
-      { file: "assets/videos/director.mp4", poster: "https://digitaldas.in/wp-content/uploads/2025/11/4th-reel.jpg", name: "Director Story", label: "Client Testimonial" }
+      { file: "assets/videos/absolute.mp4", poster: "assets/videos/absolute.jpg", name: "Pooja", label: "Client Testimonial" },
+      { file: "assets/videos/client1.mp4", poster: "assets/videos/client1.jpg", name: "Asif", label: "Client Testimonial" },
+      { file: "assets/videos/director.mp4", poster: "assets/videos/director.jpg", name: "Director Story", label: "Client Testimonial" }
     ];
 
     // 1. Analytics & Event Tracking Layer
@@ -1057,11 +1057,12 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
       const cardElem = videoElem.closest('.relative') || videoElem.parentNode;
       let posterSrc = videoElem.getAttribute('poster');
       
-      if (!posterSrc || posterSrc.includes('assets/')) {
-        if (title.includes('Pooja')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/2nd-reel.jpg';
-        else if (title.includes('Asif')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/3rd-reel.jpg';
-        else if (title.includes('Director')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/4th-reel.jpg';
-        else posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg';
+      if (!posterSrc) {
+        if (title.includes('Pratishek') || title.includes('Founder')) posterSrc = 'assets/videos/founder.jpg';
+        else if (title.includes('Pooja')) posterSrc = 'assets/videos/absolute.jpg';
+        else if (title.includes('Asif')) posterSrc = 'assets/videos/client1.jpg';
+        else if (title.includes('Director')) posterSrc = 'assets/videos/director.jpg';
+        else posterSrc = 'assets/videos/founder.jpg';
       }
       
       if (cardElem) {
