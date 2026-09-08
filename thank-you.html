@@ -23,7 +23,20 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '2887395881594294');
   fbq('track', 'PageView');
-  fbq('track', 'Lead');
+  
+  // Module-level guard: Exactly one Lead event per submission with eventID
+  (function trackSingleLead() {
+    if (typeof window !== 'undefined' && !window.__ddLeadFired) {
+      if (typeof fbq === 'function') {
+        window.__ddLeadFired = true;
+        const eventId = 'lead_' + Date.now();
+        fbq('track', 'Lead', {}, { eventID: eventId });
+        console.log('[Meta Pixel] Deduplicated Lead event fired:', eventId);
+      } else {
+        setTimeout(trackSingleLead, 100);
+      }
+    }
+  })();
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
@@ -147,23 +160,6 @@
     </div>
   </footer>
 
-  <!-- META PIXEL SINGLE LEAD EVENT GUARD -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      function fireLeadEvent() {
-        if (typeof fbq === 'function') {
-          if (sessionStorage.getItem('lead_pending') && !sessionStorage.getItem('lead_fired')) {
-            fbq('track', 'Lead');
-            sessionStorage.setItem('lead_fired', 'true');
-            sessionStorage.removeItem('lead_pending');
-            console.log('[Meta Pixel] Lead event fired successfully on /thank-you');
-          }
-        } else {
-          setTimeout(fireLeadEvent, 100);
-        }
-      }
-      fireLeadEvent();
-    });
-  </script>
+
 </body>
 </html>
