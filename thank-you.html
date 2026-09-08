@@ -24,16 +24,20 @@
   fbq('init', '2887395881594294');
   fbq('track', 'PageView');
   
-  // Module-level guard: Exactly one Lead event per submission with eventID
+  // Module + Session storage guard: Exactly one Lead event fired per submission
   (function trackSingleLead() {
-    if (typeof window !== 'undefined' && !window.__ddLeadFired) {
-      if (typeof fbq === 'function') {
-        window.__ddLeadFired = true;
-        const eventId = 'lead_' + Date.now();
-        fbq('track', 'Lead', {}, { eventID: eventId });
-        console.log('[Meta Pixel] Deduplicated Lead event fired:', eventId);
-      } else {
-        setTimeout(trackSingleLead, 100);
+    if (typeof window !== 'undefined') {
+      const storageKey = 'dd_lead_event_fired';
+      if (!window.__ddLeadFired && !sessionStorage.getItem(storageKey)) {
+        if (typeof fbq === 'function') {
+          window.__ddLeadFired = true;
+          try { sessionStorage.setItem(storageKey, 'true'); } catch(e) {}
+          const eventId = 'lead_' + Date.now();
+          fbq('track', 'Lead', {}, { eventID: eventId });
+          console.log('[Meta Pixel] Deduplicated Lead event fired:', eventId);
+        } else {
+          setTimeout(trackSingleLead, 100);
+        }
       }
     }
   })();
