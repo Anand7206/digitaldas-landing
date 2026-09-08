@@ -1053,22 +1053,24 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
     }
 
     function handleVideoError(videoElem, title, subtitle) {
-      console.warn('[Video Load Failed]', videoElem.currentSrc);
+      console.warn('[Video Load Failed]', videoElem ? (videoElem.id || videoElem.currentSrc) : 'unknown');
+      if (!videoElem) return;
       const cardElem = videoElem.closest('.relative') || videoElem.parentNode;
       let posterSrc = videoElem.getAttribute('poster');
       
-      if (!posterSrc) {
-        if (title.includes('Pratishek') || title.includes('Founder')) posterSrc = 'assets/videos/founder.jpg';
-        else if (title.includes('Pooja')) posterSrc = 'assets/videos/absolute.jpg';
-        else if (title.includes('Asif')) posterSrc = 'assets/videos/client1.jpg';
-        else if (title.includes('Director')) posterSrc = 'assets/videos/director.jpg';
-        else posterSrc = 'assets/videos/founder.jpg';
+      if (!posterSrc || posterSrc.includes('assets/')) {
+        if (title.includes('Pratishek') || title.includes('Founder')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg';
+        else if (title.includes('Pooja')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/2nd-reel.jpg';
+        else if (title.includes('Asif')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/3rd-reel.jpg';
+        else if (title.includes('Director')) posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/4th-reel.jpg';
+        else posterSrc = 'https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg';
       }
       
-      if (cardElem) {
+      if (cardElem && !cardElem.dataset.errorHandled) {
+        cardElem.dataset.errorHandled = "true";
         cardElem.innerHTML = `
           <div class="w-full h-full relative bg-[#15110c] flex flex-col justify-end p-4 text-white overflow-hidden rounded-2xl">
-            <img src="${posterSrc}" alt="${title}" class="absolute inset-0 w-full h-full object-cover opacity-85" />
+            <img src="${posterSrc}" alt="${title}" class="absolute inset-0 w-full h-full object-cover opacity-85" onerror="this.src='https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg'" />
             <div class="relative z-10 bg-black/80 backdrop-blur-sm p-3 rounded-xl border border-[#3a3226]">
               <p class="font-bold text-xs text-white mb-0.5">${title || 'Client Story'}</p>
               <p class="text-[10px] text-[#c9c2b4] mb-2">${subtitle || 'Watch Reel'}</p>
@@ -1082,7 +1084,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
       }
     }
 
-    // Scroll-out Observer (Threshold 0.25)
+    // Scroll-out Observer & Source 404 Error Attacher
     const videoScrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) {
@@ -1102,6 +1104,35 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
           if (otherVideo !== video && !otherVideo.paused) {
             otherVideo.pause();
           }
+        });
+      });
+
+      // Handle missing poster image fallback
+      const poster = video.getAttribute('poster');
+      if (poster && poster.startsWith('assets/')) {
+        const img = new Image();
+        img.onerror = () => {
+          const vId = video.id || '';
+          if (vId.includes('founder') || vId.includes('hero')) video.setAttribute('poster', 'https://digitaldas.in/wp-content/uploads/2025/11/1st-reel.jpg');
+          else if (vId.includes('pooja')) video.setAttribute('poster', 'https://digitaldas.in/wp-content/uploads/2025/11/2nd-reel.jpg');
+          else if (vId.includes('asif')) video.setAttribute('poster', 'https://digitaldas.in/wp-content/uploads/2025/11/3rd-reel.jpg');
+          else if (vId.includes('director')) video.setAttribute('poster', 'https://digitaldas.in/wp-content/uploads/2025/11/4th-reel.jpg');
+        };
+        img.src = poster;
+      }
+
+      // Handle <source> 404 errors (fires when local mp4 is not uploaded to GitHub/Vercel)
+      const sources = video.querySelectorAll('source');
+      sources.forEach(src => {
+        src.addEventListener('error', () => {
+          const vId = video.id || '';
+          let title = 'Digital Das Video';
+          let subtitle = 'Watch Reel';
+          if (vId.includes('founder') || vId.includes('hero')) { title = 'Pratishek Das'; subtitle = 'Founder, Digital Das'; }
+          else if (vId.includes('pooja')) { title = 'Pooja'; subtitle = 'Client Testimonial'; }
+          else if (vId.includes('asif')) { title = 'Asif'; subtitle = 'Client Testimonial'; }
+          else if (vId.includes('director')) { title = 'Director Story'; subtitle = 'Client Testimonial'; }
+          handleVideoError(video, title, subtitle);
         });
       });
     });
