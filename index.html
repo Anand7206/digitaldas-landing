@@ -1470,12 +1470,31 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
     // ===================================================================
     // All result screenshots, platforms, and exact visible captions are configured here.
     // To add a new result, simply add an object to this array.
+    // Helper for multi-tier image fallback: CDN -> public/results -> assets/results -> results/
+    function handleResultImgError(img) {
+      if (!img || !img.dataset) return;
+      const fn = img.dataset.fn;
+      const step = parseInt(img.dataset.step || '0', 10);
+      if (!fn) return;
+      if (step === 0) {
+        img.dataset.step = '1';
+        img.src = 'public/results/' + fn;
+      } else if (step === 1) {
+        img.dataset.step = '2';
+        img.src = 'assets/results/' + fn;
+      } else if (step === 2) {
+        img.dataset.step = '3';
+        img.src = 'results/' + fn;
+      }
+    }
+
     const campaignResults = [
       {
         id: 1,
         platform: "Meta Ads",
         browserUrl: "business.facebook.com/adsmanager",
-        image: "public/results/result-1-meta-leads-overview.png",
+        image: "https://files.catbox.moe/r89w5j.png",
+        filename: "result-1-meta-leads-overview.png",
         title: "Meta Lead Gen Campaign",
         heroMetric: "1,939 Leads (Form)",
         heroCost: "₹46.55 / lead",
@@ -1487,7 +1506,8 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         id: 2,
         platform: "Meta Ads",
         browserUrl: "business.facebook.com/adsmanager",
-        image: "public/results/result-2-meta-pincodes-leads.png",
+        image: "https://files.catbox.moe/8wgdbz.png",
+        filename: "result-2-meta-pincodes-leads.png",
         title: "Local Pincode Lead Gen",
         heroMetric: "984 Leads (Form)",
         heroCost: "₹13.78 / lead",
@@ -1499,7 +1519,8 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         id: 3,
         platform: "Meta Ads",
         browserUrl: "business.facebook.com/adsmanager",
-        image: "public/results/result-3-meta-purchases-aug.jpg",
+        image: "https://files.catbox.moe/pjn77t.jpg",
+        filename: "result-3-meta-purchases-aug.jpg",
         title: "E-Commerce Purchases (16 Campaigns)",
         heroMetric: "1,595 Website purchases",
         heroCost: "₹210.12 / purchase",
@@ -1511,7 +1532,8 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         id: 4,
         platform: "Meta Ads",
         browserUrl: "business.facebook.com/adsmanager",
-        image: "public/results/result-4-meta-purchases-sep.jpg",
+        image: "https://files.catbox.moe/ohjvik.jpg",
+        filename: "result-4-meta-purchases-sep.jpg",
         title: "E-Commerce Scaling (30-Day Window)",
         heroMetric: "1,659 Website purchases",
         heroCost: "₹192.77 / purchase",
@@ -1523,7 +1545,8 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         id: 5,
         platform: "Meta Ads",
         browserUrl: "business.facebook.com/adsmanager",
-        image: "public/results/result-5-meta-adsets-aug.jpg",
+        image: "https://files.catbox.moe/abapom.jpg",
+        filename: "result-5-meta-adsets-aug.jpg",
         title: "Granular Ad Set Testing (141 Ad Sets)",
         heroMetric: "523 Website purchases",
         heroCost: "₹200.96 / purchase",
@@ -1535,7 +1558,8 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         id: 6,
         platform: "Google Ads",
         browserUrl: "ads.google.com/aw/overview",
-        image: "public/results/result-6-google-ads-realty.png",
+        image: "https://files.catbox.moe/1r05j5.png",
+        filename: "result-6-google-ads-realty.png",
         title: "Search & Display Scaling (Real Estate)",
         heroMetric: "3.88K Conversions",
         heroCost: "Opt. Score: 67.5%",
@@ -1582,7 +1606,6 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         const badgeClass = isGoogle 
           ? 'bg-[#4285F4]/15 text-[#66b3ff] border-[#4285F4]/30' 
           : 'bg-[#1877F2]/15 text-[#6aa9ff] border-[#1877F2]/30';
-        const fallbackUrl = 'assets/results/' + item.image.split('/').pop();
 
         return `
         <div class="result-card bg-[#15110c] border border-[#3a3226] hover:border-[#e8a13c]/60 rounded-2xl overflow-hidden shadow-dark-card transition-all duration-300 transform hover:-translate-y-1 group flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#e8a13c]"
@@ -1613,7 +1636,9 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
             <img src="${item.image}" 
                  alt="${item.alt}" 
                  loading="lazy" 
-                 onerror="if(!this.dataset.fallback){this.dataset.fallback='1'; this.src='${fallbackUrl}';}"
+                 data-fn="${item.filename}"
+                 data-step="0"
+                 onerror="handleResultImgError(this)"
                  class="w-full h-full object-contain rounded-md transition-transform duration-300 group-hover:scale-[1.02]" />
             
             <!-- Hover Hint Overlay -->
@@ -1712,14 +1737,12 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
       const caption = document.getElementById('lightbox-caption');
 
       if (img) {
-        img.dataset.fallback = '';
+        img.dataset.fn = item.filename;
+        img.dataset.step = '0';
         img.src = item.image;
         img.alt = item.alt;
         img.onerror = function() {
-          if (!this.dataset.fallback) {
-            this.dataset.fallback = '1';
-            this.src = 'assets/results/' + item.image.split('/').pop();
-          }
+          handleResultImgError(this);
         };
       }
       if (counter) counter.textContent = `${currentLightboxIndex + 1} of ${filteredResults.length}`;
