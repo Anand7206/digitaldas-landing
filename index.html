@@ -393,6 +393,87 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
 
 
   <!-- =================================================================== -->
+  <!-- B2. VERIFIED CAMPAIGN RESULTS (Meta & Google Ads Dashboards)         -->
+  <!-- =================================================================== -->
+  <section id="campaign-results" class="py-16 md:py-24 bg-[#0d0c0a] text-white border-t border-[#3a3226]/40 relative overflow-hidden">
+    
+    <!-- Ambient Gold Glow Background -->
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#e8a13c]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10 animate-on-scroll">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#211a12] border border-[#3a3226] text-[#e8a13c] text-xs font-bold tracking-wider uppercase mb-3">
+          <span class="w-2 h-2 rounded-full bg-[#e8a13c] animate-pulse"></span>
+          <span>VERIFIED RESULTS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+          Real Campaigns. <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#e8a13c] via-[#f7cb8b] to-[#e8a13c]">Real Numbers.</span>
+        </h2>
+        <p class="text-base sm:text-lg text-[#c9c2b4] max-w-2xl mx-auto leading-relaxed">
+          Live dashboards from Meta &amp; Google Ads accounts managed by Digital Das.
+        </p>
+      </div>
+
+      <!-- Platform Filter Tabs -->
+      <div class="flex justify-center items-center gap-2 sm:gap-3 mb-10 flex-wrap animate-on-scroll">
+        <button onclick="filterResults('all')" 
+                id="filter-btn-all"
+                class="results-tab-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-extrabold transition-all min-h-[40px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c] bg-[#e8a13c] text-black shadow-md shadow-[#e8a13c]/20">
+          All Proofs (<span id="count-all">6</span>)
+        </button>
+        <button onclick="filterResults('Meta Ads')" 
+                id="filter-btn-meta"
+                class="results-tab-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all min-h-[40px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c] bg-[#15110c] text-[#c9c2b4] border border-[#3a3226] hover:text-white hover:border-[#e8a13c]/50">
+          Meta Ads (<span id="count-meta">5</span>)
+        </button>
+        <button onclick="filterResults('Google Ads')" 
+                id="filter-btn-google"
+                class="results-tab-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all min-h-[40px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c] bg-[#15110c] text-[#c9c2b4] border border-[#3a3226] hover:text-white hover:border-[#e8a13c]/50">
+          Google Ads (<span id="count-google">1</span>)
+        </button>
+      </div>
+
+      <!-- Results Cards Grid Container -->
+      <div id="results-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 animate-on-scroll">
+        <!-- Hydrated dynamically from campaignResults data array -->
+      </div>
+
+      <!-- Empty State for filters with 0 items -->
+      <div id="results-empty-state" class="hidden py-14 px-6 rounded-2xl bg-[#15110c] border border-[#3a3226] text-center max-w-xl mx-auto my-6">
+        <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#e8a13c]/15 text-[#e8a13c] flex items-center justify-center font-bold text-lg">
+          <svg class="w-6 h-6 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Google Ads Case Studies In Progress</h3>
+        <p class="text-sm text-[#c9c2b4] mb-5 leading-relaxed">
+          We are currently updating our latest Google Search, Shopping, and Performance Max dashboard snapshots. Contact our team to review live benchmark data for your specific industry.
+        </p>
+        <a href="#lead-form" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#e8a13c] text-black font-bold text-xs hover:bg-[#d48f2b] transition-all">
+          <span>Request Google Ads Case Studies</span>
+          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Disclaimer Line (Verbatim as requested) -->
+      <p class="text-xs text-[#a89f91] mt-8 text-center max-w-2xl mx-auto leading-relaxed">
+        Screenshots from live client accounts. Client names hidden for privacy. Results vary by industry, budget and offer.
+      </p>
+
+      <!-- CTA Button Linking to Contact / Lead Form -->
+      <div class="mt-8 text-center animate-on-scroll">
+        <a href="#lead-form" 
+           class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#e8a13c] hover:bg-[#d48f2b] text-black font-extrabold text-base transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-[#e8a13c]/25 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+          <span>Want Results Like These? Get a Free Audit</span>
+          <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =================================================================== -->
   <!-- C. WHAT WE DO (4 Compact Cards)                                    -->
   <!-- =================================================================== -->
   <section class="py-16 md:py-24 bg-[#0d0c0a] text-white border-t border-[#3a3226]/40">
@@ -480,9 +561,9 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
 
 
   <!-- =================================================================== -->
-  <!-- E. SUCCESS STORY CLIPS (3 Distinct Cards, Desktop Centered)        -->
+  <!-- E. SUCCESS STORY CLIPS (Client Testimonials Carousel)           -->
   <!-- =================================================================== -->
-  <section class="py-16 md:py-24 bg-[#f7f3ec] text-[#1a1815] overflow-hidden">
+  <section id="testimonials" class="py-16 md:py-24 bg-[#f7f3ec] text-[#1a1815] overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 animate-on-scroll">
@@ -509,8 +590,8 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         </div>
       </div>
 
-      <!-- Scrollable Snap Container (300px mobile / 340px desktop, 3 centered cards on desktop) -->
-      <div id="testimonial-carousel" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x-mandatory no-scrollbar pb-6 pt-2 -mx-4 px-4 md:mx-0 md:px-0 md:justify-center">
+      <!-- Scrollable Snap Container (300px mobile / 340px desktop) -->
+      <div id="testimonial-carousel" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x-mandatory no-scrollbar pb-6 pt-2 -mx-4 px-4 md:mx-0 md:px-0">
         
         <!-- Card 1: Pooja (absolute.mp4 / absolute.jpg) -->
         <div class="snap-card flex-shrink-0 w-[300px] md:w-[340px] flex flex-col gap-2.5">
@@ -602,11 +683,73 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
           </div>
         </div>
 
+        <!-- Card 4: DD Testimonial Combine (https://files.catbox.moe/nup1jh.mp4) -->
+        <div class="snap-card flex-shrink-0 w-[300px] md:w-[340px] flex flex-col gap-2.5">
+          <div class="relative w-full aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
+            <video id="video-combine"
+                   class="reel testimonial-video w-full h-full aspect-[9/16] object-cover" 
+                   poster="https://files.catbox.moe/n4h8os.jpg"
+                   preload="metadata" 
+                   playsinline 
+                   webkit-playsinline
+                   onerror="handleVideoError(this, 'Client Story', 'Client Testimonial')">
+              <source src="https://files.catbox.moe/nup1jh.mp4" type="video/mp4" />
+              <source src="assets/videos/dd-testimonial-combine.mp4" type="video/mp4" />
+              Your browser does not support native HTML5 video playback.
+            </video>
+            
+            <button onclick="playTestimonialVideo(this)" 
+                    aria-label="Play Client Story Video" 
+                    class="hero-play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#e8a13c] hover:bg-[#d48f2b] text-black flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-95">
+              <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            
+            <div class="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          </div>
+          
+          <div class="flex items-center justify-between px-1">
+            <span class="font-bold text-[17px] text-[#1a1815]">Client Story (Combine)</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#e8a13c]/15 text-[#9a6417] text-xs font-bold">Client Testimonial</span>
+          </div>
+        </div>
+
+        <!-- Card 5: DD Testimonial ABC (https://files.catbox.moe/ublkv9.mp4) -->
+        <div class="snap-card flex-shrink-0 w-[300px] md:w-[340px] flex flex-col gap-2.5">
+          <div class="relative w-full aspect-[9/16] rounded-2xl overflow-hidden bg-[#15110c] border border-[#e8a13c]/35 shadow-dark-card group">
+            <video id="video-abc"
+                   class="reel testimonial-video w-full h-full aspect-[9/16] object-cover" 
+                   poster="https://files.catbox.moe/17qjcc.jpg"
+                   preload="metadata" 
+                   playsinline 
+                   webkit-playsinline
+                   onerror="handleVideoError(this, 'Client Review', 'Client Testimonial')">
+              <source src="https://files.catbox.moe/ublkv9.mp4" type="video/mp4" />
+              <source src="assets/videos/dd-testimonial-abc.mp4" type="video/mp4" />
+              Your browser does not support native HTML5 video playback.
+            </video>
+            
+            <button onclick="playTestimonialVideo(this)" 
+                    aria-label="Play Client Review Video" 
+                    class="hero-play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#e8a13c] hover:bg-[#d48f2b] text-black flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-95">
+              <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            
+            <div class="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          </div>
+          
+          <div class="flex items-center justify-between px-1">
+            <span class="font-bold text-[17px] text-[#1a1815]">Client Review (ABC)</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#e8a13c]/15 text-[#9a6417] text-xs font-bold">Client Testimonial</span>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Mobile 3 Dots Indicator -->
+      <!-- Mobile 5 Dots Indicator -->
       <div class="flex md:hidden justify-center items-center gap-1.5 mt-2">
         <span class="w-2 h-2 rounded-full bg-[#e8a13c]"></span>
+        <span class="w-2 h-2 rounded-full bg-[#e6dfd0]"></span>
+        <span class="w-2 h-2 rounded-full bg-[#e6dfd0]"></span>
         <span class="w-2 h-2 rounded-full bg-[#e6dfd0]"></span>
         <span class="w-2 h-2 rounded-full bg-[#e6dfd0]"></span>
       </div>
@@ -956,7 +1099,9 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
     const testimonials = [
       { file: "https://files.catbox.moe/m2yrse.mp4", poster: "https://files.catbox.moe/cu89j2.jpg", name: "Pooja", label: "Client Testimonial" },
       { file: "https://files.catbox.moe/yofuzj.mp4", poster: "https://files.catbox.moe/lihraw.jpg", name: "Asif", label: "Client Testimonial" },
-      { file: "https://files.catbox.moe/1ssyzf.mp4", poster: "https://files.catbox.moe/3zvv76.jpg", name: "Director Story", label: "Client Testimonial" }
+      { file: "https://files.catbox.moe/1ssyzf.mp4", poster: "https://files.catbox.moe/3zvv76.jpg", name: "Director Story", label: "Client Testimonial" },
+      { file: "https://files.catbox.moe/nup1jh.mp4", poster: "https://files.catbox.moe/n4h8os.jpg", name: "Client Story (Combine)", label: "Client Testimonial" },
+      { file: "https://files.catbox.moe/ublkv9.mp4", poster: "https://files.catbox.moe/17qjcc.jpg", name: "Client Review (ABC)", label: "Client Testimonial" }
     ];
 
     // 1. Analytics & Event Tracking Layer
@@ -1319,7 +1464,372 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // ===================================================================
+    // 9. CAMPAIGN RESULTS DATA ARRAY & LIGHTBOX CONTROLLER
+    // ===================================================================
+    // All result screenshots, platforms, and exact visible captions are configured here.
+    // To add a new result, simply add an object to this array.
+    const campaignResults = [
+      {
+        id: 1,
+        platform: "Meta Ads",
+        browserUrl: "business.facebook.com/adsmanager",
+        image: "public/results/result-1-meta-leads-overview.png",
+        title: "Meta Lead Gen Campaign",
+        heroMetric: "1,939 Leads (Form)",
+        heroCost: "₹46.55 / lead",
+        heroSpend: "₹90,259.34",
+        caption: "1,939 Leads (Form) at ₹46.55 per lead · ₹90,259.34 spent · 1,131,457 impressions (Total account spend: ₹5,04,996.01)",
+        alt: "Meta Ads Manager dashboard showing 1,939 leads at ₹46.55 per lead"
+      },
+      {
+        id: 2,
+        platform: "Meta Ads",
+        browserUrl: "business.facebook.com/adsmanager",
+        image: "public/results/result-2-meta-pincodes-leads.png",
+        title: "Local Pincode Lead Gen",
+        heroMetric: "984 Leads (Form)",
+        heroCost: "₹13.78 / lead",
+        heroSpend: "₹13,559.31",
+        caption: "984 Leads (Form) at ₹13.78 per lead · ₹13,559.31 spent · 86,395 reach · Ad Set: NEAR BY PINCODES",
+        alt: "Meta Ads Manager ad set dashboard showing 984 leads at ₹13.78 per lead"
+      },
+      {
+        id: 3,
+        platform: "Meta Ads",
+        browserUrl: "business.facebook.com/adsmanager",
+        image: "public/results/result-3-meta-purchases-aug.jpg",
+        title: "E-Commerce Purchases (16 Campaigns)",
+        heroMetric: "1,595 Website purchases",
+        heroCost: "₹210.12 / purchase",
+        heroSpend: "₹3,35,144.91",
+        caption: "1,595 Website purchases across 16 campaigns · ₹210.12 cost per purchase · ₹335,144.91 spent · 1,467,312 impressions",
+        alt: "Meta Ads Manager campaigns dashboard showing 1,595 website purchases at ₹210.12 per purchase"
+      },
+      {
+        id: 4,
+        platform: "Meta Ads",
+        browserUrl: "business.facebook.com/adsmanager",
+        image: "public/results/result-4-meta-purchases-sep.jpg",
+        title: "E-Commerce Scaling (30-Day Window)",
+        heroMetric: "1,659 Website purchases",
+        heroCost: "₹192.77 / purchase",
+        heroSpend: "₹3,19,803.64",
+        caption: "1,659 Website purchases across 13 campaigns · ₹192.77 cost per purchase · ₹319,803.64 spent · 2,176,616 impressions",
+        alt: "Meta Ads Manager dashboard showing 1,659 website purchases at ₹192.77 per purchase"
+      },
+      {
+        id: 5,
+        platform: "Meta Ads",
+        browserUrl: "business.facebook.com/adsmanager",
+        image: "public/results/result-5-meta-adsets-aug.jpg",
+        title: "Granular Ad Set Testing (141 Ad Sets)",
+        heroMetric: "523 Website purchases",
+        heroCost: "₹200.96 / purchase",
+        heroSpend: "₹105,099.55",
+        caption: "523 Website purchases from 141 ad sets · ₹200.96 cost per purchase · ₹105,099.55 spent · Frequency: 2.52",
+        alt: "Meta Ads Manager ad sets dashboard showing 523 website purchases across 141 ad sets"
+      },
+      {
+        id: 6,
+        platform: "Google Ads",
+        browserUrl: "ads.google.com/aw/overview",
+        image: "public/results/result-6-google-ads-realty.png",
+        title: "Search & Display Scaling (Real Estate)",
+        heroMetric: "3.88K Conversions",
+        heroCost: "Opt. Score: 67.5%",
+        heroSpend: "Spend: ₹1.9M",
+        caption: "3.88K Conversions · 334K Clicks · 8.18M Impressions · ₹1.9M Spent · 67.5% Optimization Score (Prop Investa Realty)",
+        alt: "Google Ads overview dashboard showing 3.88K conversions and 334K clicks"
+      }
+    ];
+
+    let currentFilter = 'all';
+    let filteredResults = [...campaignResults];
+    let currentLightboxIndex = 0;
+
+    function renderCampaignResults() {
+      const grid = document.getElementById('results-grid');
+      const emptyState = document.getElementById('results-empty-state');
+      if (!grid) return;
+
+      // Update filter tab counts
+      const countAll = document.getElementById('count-all');
+      const countMeta = document.getElementById('count-meta');
+      const countGoogle = document.getElementById('count-google');
+      if (countAll) countAll.textContent = campaignResults.length;
+      if (countMeta) countMeta.textContent = campaignResults.filter(r => r.platform.toLowerCase().includes('meta')).length;
+      if (countGoogle) countGoogle.textContent = campaignResults.filter(r => r.platform.toLowerCase().includes('google')).length;
+
+      // Filter list
+      if (currentFilter === 'all') {
+        filteredResults = [...campaignResults];
+      } else {
+        filteredResults = campaignResults.filter(r => r.platform.toLowerCase().includes(currentFilter.toLowerCase()));
+      }
+
+      if (filteredResults.length === 0) {
+        grid.innerHTML = '';
+        if (emptyState) emptyState.classList.remove('hidden');
+        return;
+      }
+
+      if (emptyState) emptyState.classList.add('hidden');
+
+      grid.innerHTML = filteredResults.map((item, idx) => {
+        const isGoogle = item.platform.toLowerCase().includes('google');
+        const badgeClass = isGoogle 
+          ? 'bg-[#4285F4]/15 text-[#66b3ff] border-[#4285F4]/30' 
+          : 'bg-[#1877F2]/15 text-[#6aa9ff] border-[#1877F2]/30';
+        const fallbackUrl = 'assets/results/' + item.image.split('/').pop();
+
+        return `
+        <div class="result-card bg-[#15110c] border border-[#3a3226] hover:border-[#e8a13c]/60 rounded-2xl overflow-hidden shadow-dark-card transition-all duration-300 transform hover:-translate-y-1 group flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#e8a13c]"
+             tabindex="0"
+             role="button"
+             aria-label="View ${item.title} result screenshot"
+             onclick="openResultsLightbox(${idx})"
+             onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openResultsLightbox(${idx}); }">
+
+          <!-- Mock Browser Top Bar -->
+          <div class="bg-[#1c1610] px-3.5 py-2.5 border-b border-[#3a3226] flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
+            </div>
+            <div class="bg-[#120e0a] px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-mono text-[#a89f91] border border-[#2b241b] truncate max-w-[145px] sm:max-w-[200px] flex items-center gap-1">
+              <svg class="w-3 h-3 text-[#7a7265] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span class="truncate">${item.browserUrl}</span>
+            </div>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold flex-shrink-0 border ${badgeClass}">
+              ${item.platform}
+            </span>
+          </div>
+
+          <!-- Framed Screenshot Container (object-fit: contain, uncropped, original aspect ratio) -->
+          <div class="relative w-full aspect-[16/10] bg-[#0d0c0a] flex items-center justify-center p-2 sm:p-2.5 overflow-hidden group-hover:bg-[#120e0a] transition-colors border-b border-[#3a3226]/40">
+            <img src="${item.image}" 
+                 alt="${item.alt}" 
+                 loading="lazy" 
+                 onerror="if(!this.dataset.fallback){this.dataset.fallback='1'; this.src='${fallbackUrl}';}"
+                 class="w-full h-full object-contain rounded-md transition-transform duration-300 group-hover:scale-[1.02]" />
+            
+            <!-- Hover Hint Overlay -->
+            <div class="absolute inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e8a13c] text-black font-bold text-xs shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
+                <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                Click to view full
+              </span>
+            </div>
+          </div>
+
+          <!-- Metric Caption Area -->
+          <div class="p-3.5 sm:p-4 bg-[#16120e] flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1.5">
+                <h4 class="text-xs font-semibold text-[#c9c2b4] uppercase tracking-wider truncate">${item.title}</h4>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#211a12] border border-[#3a3226] text-[#e8a13c] flex-shrink-0">Verified</span>
+              </div>
+              <div class="text-lg sm:text-xl font-extrabold text-white tracking-tight mb-1">
+                ${item.heroMetric}
+              </div>
+              <p class="text-xs text-[#a89f91] font-mono leading-relaxed line-clamp-2">
+                ${item.caption}
+              </p>
+            </div>
+            
+            <div class="mt-3 pt-3 border-t border-[#3a3226]/50 flex items-center justify-between text-xs text-[#c9c2b4]">
+              <span class="text-[#e8a13c] font-bold">${item.heroCost.startsWith('Cost:') || item.heroCost.startsWith('Opt.') ? item.heroCost : 'Cost: ' + item.heroCost}</span>
+              <span class="text-[#a89f91]">${item.heroSpend.startsWith('Spend:') ? item.heroSpend : 'Spend: ' + item.heroSpend}</span>
+            </div>
+          </div>
+
+        </div>
+      `;}).join('');
+
+      if (typeof observer !== 'undefined') {
+        document.querySelectorAll('#campaign-results .animate-on-scroll:not(.is-visible)').forEach(el => observer.observe(el));
+      }
+    }
+
+    function filterResults(platform) {
+      currentFilter = platform;
+      document.querySelectorAll('.results-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-[#e8a13c]', 'text-black', 'shadow-md', 'shadow-[#e8a13c]/20', 'font-extrabold');
+        btn.classList.add('bg-[#15110c]', 'text-[#c9c2b4]', 'border', 'border-[#3a3226]', 'font-semibold');
+      });
+
+      let activeBtn = document.getElementById('filter-btn-all');
+      if (platform.toLowerCase().includes('meta')) activeBtn = document.getElementById('filter-btn-meta');
+      else if (platform.toLowerCase().includes('google')) activeBtn = document.getElementById('filter-btn-google');
+
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-[#15110c]', 'text-[#c9c2b4]', 'border', 'border-[#3a3226]', 'font-semibold');
+        activeBtn.classList.add('bg-[#e8a13c]', 'text-black', 'shadow-md', 'shadow-[#e8a13c]/20', 'font-extrabold');
+      }
+
+      renderCampaignResults();
+      trackEvent('filter_results_click', platform);
+    }
+
+    // Lightbox Controls
+    function openResultsLightbox(index) {
+      if (!filteredResults || index < 0 || index >= filteredResults.length) return;
+      currentLightboxIndex = index;
+      updateLightboxContent();
+
+      const modal = document.getElementById('results-lightbox');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      trackEvent('open_results_lightbox', filteredResults[index].title);
+    }
+
+    function closeResultsLightbox() {
+      const modal = document.getElementById('results-lightbox');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function navigateResultsLightbox(direction) {
+      if (!filteredResults.length) return;
+      currentLightboxIndex = (currentLightboxIndex + direction + filteredResults.length) % filteredResults.length;
+      updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+      const item = filteredResults[currentLightboxIndex];
+      if (!item) return;
+
+      const img = document.getElementById('lightbox-img');
+      const counter = document.getElementById('lightbox-counter');
+      const title = document.getElementById('lightbox-title');
+      const caption = document.getElementById('lightbox-caption');
+
+      if (img) {
+        img.dataset.fallback = '';
+        img.src = item.image;
+        img.alt = item.alt;
+        img.onerror = function() {
+          if (!this.dataset.fallback) {
+            this.dataset.fallback = '1';
+            this.src = 'assets/results/' + item.image.split('/').pop();
+          }
+        };
+      }
+      if (counter) counter.textContent = `${currentLightboxIndex + 1} of ${filteredResults.length}`;
+      if (title) title.textContent = `${item.platform} — ${item.title}`;
+      if (caption) caption.textContent = item.caption;
+    }
+
+    function handleLightboxBackdropClick(event) {
+      if (event.target.id === 'results-lightbox' || event.target.id === 'lightbox-img-container') {
+        closeResultsLightbox();
+      }
+    }
+
+    // Keyboard & Touch Handlers
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('results-lightbox');
+      if (!modal || modal.classList.contains('hidden')) return;
+
+      if (e.key === 'Escape') closeResultsLightbox();
+      else if (e.key === 'ArrowLeft') navigateResultsLightbox(-1);
+      else if (e.key === 'ArrowRight') navigateResultsLightbox(1);
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const lightboxModal = document.getElementById('results-lightbox');
+    if (lightboxModal) {
+      lightboxModal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      lightboxModal.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) navigateResultsLightbox(1); // Swiped left -> next
+          else navigateResultsLightbox(-1); // Swiped right -> prev
+        }
+      }, { passive: true });
+    }
+
+    // Initial Render
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderCampaignResults);
+    } else {
+      renderCampaignResults();
+    }
+
   </script>
+
+
+  <!-- =================================================================== -->
+  <!-- LIGHTBOX MODAL — CAMPAIGN RESULTS SCREENSHOT VIEWER                 -->
+  <!-- =================================================================== -->
+  <div id="results-lightbox" 
+       class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex flex-col items-center justify-between p-3 sm:p-6 transition-opacity duration-300" 
+       role="dialog" 
+       aria-modal="true" 
+       aria-label="Campaign Screenshot Viewer"
+       onclick="handleLightboxBackdropClick(event)">
+    
+    <!-- Top Bar: Counter, Title & Close Button -->
+    <div class="w-full max-w-6xl flex items-center justify-between py-2 text-white z-20">
+      <div class="flex items-center gap-3">
+        <span id="lightbox-counter" class="text-xs font-mono px-2.5 py-1 rounded bg-[#211a12] border border-[#3a3226] text-[#e8a13c]">1 of 5</span>
+        <span id="lightbox-title" class="text-xs sm:text-sm font-semibold text-[#f7f3ec] truncate max-w-[200px] sm:max-w-md">Meta Ads Manager</span>
+      </div>
+      <button onclick="closeResultsLightbox()" 
+              aria-label="Close Lightbox (ESC)" 
+              class="w-10 h-10 rounded-full bg-[#211a12] hover:bg-[#e8a13c] hover:text-black text-white border border-[#3a3226] flex items-center justify-center transition-all min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+        <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Center Viewport with Prev / Next Navigation & Contain Image -->
+    <div class="relative w-full max-w-6xl flex-1 flex items-center justify-center min-h-0 my-2">
+      <!-- Prev Button -->
+      <button onclick="navigateResultsLightbox(-1)" 
+              aria-label="Previous Screenshot (Left Arrow)"
+              class="absolute left-1 sm:left-4 z-20 w-11 h-11 rounded-full bg-black/75 hover:bg-[#e8a13c] hover:text-black text-white border border-[#3a3226] flex items-center justify-center transition-all shadow-lg min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+        <svg class="w-6 h-6 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <!-- Image Display Area (object-fit: contain, original aspect ratio) -->
+      <div id="lightbox-img-container" class="w-full h-full flex items-center justify-center p-1 sm:p-2 overflow-hidden select-none">
+        <img id="lightbox-img" 
+             src="" 
+             alt="Campaign Result Screenshot Full View" 
+             class="max-w-full max-h-[72vh] sm:max-h-[76vh] object-contain rounded-lg shadow-2xl border border-[#3a3226]/50 transition-all duration-200" />
+      </div>
+
+      <!-- Next Button -->
+      <button onclick="navigateResultsLightbox(1)" 
+              aria-label="Next Screenshot (Right Arrow)"
+              class="absolute right-1 sm:right-4 z-20 w-11 h-11 rounded-full bg-black/75 hover:bg-[#e8a13c] hover:text-black text-white border border-[#3a3226] flex items-center justify-center transition-all shadow-lg min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c]">
+        <svg class="w-6 h-6 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Bottom Caption Bar -->
+    <div class="w-full max-w-4xl text-center py-2 z-20">
+      <div class="bg-[#16120e]/95 border border-[#3a3226] px-4 py-2.5 rounded-xl shadow-lg">
+        <p id="lightbox-caption" class="text-xs sm:text-sm text-[#f7f3ec] font-mono leading-relaxed"></p>
+      </div>
+      <p class="text-[11px] text-[#8e8576] mt-2 hidden sm:block">
+        Use <kbd class="px-1.5 py-0.5 rounded bg-[#211a12] border border-[#3a3226] text-white">ESC</kbd> to close · <kbd class="px-1.5 py-0.5 rounded bg-[#211a12] border border-[#3a3226] text-white">←</kbd> <kbd class="px-1.5 py-0.5 rounded bg-[#211a12] border border-[#3a3226] text-white">→</kbd> arrows to navigate · Swipe on mobile
+      </p>
+    </div>
+
+  </div>
 
 </body>
 </html>
