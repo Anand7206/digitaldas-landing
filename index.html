@@ -1854,5 +1854,462 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
 
   </div>
 
+
+  <!-- =================================================================== -->
+  <!-- LEAD GENERATION POPUP MODAL (#dd-lead-popup) - 0.1s Instant Trigger -->
+  <!-- =================================================================== -->
+  <div id="dd-lead-popup" 
+       class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out" 
+       role="dialog" 
+       aria-modal="true" 
+       aria-labelledby="dd-popup-title" 
+       aria-describedby="dd-popup-sub">
+
+    <!-- Dark Blurred Backdrop -->
+    <div id="dd-popup-backdrop" 
+         class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300" 
+         onclick="closeLeadPopup()"></div>
+
+    <!-- Modal Box: Centered max-w-[480px] on desktop, Bottom Sheet on mobile -->
+    <div id="dd-popup-box" 
+         class="relative w-full sm:max-w-[480px] bg-[#15110c] border border-[#3a3226] sm:rounded-2xl rounded-t-2xl shadow-dark-card shadow-2xl z-10 overflow-hidden transform translate-y-6 sm:translate-y-0 sm:scale-95 transition-all duration-300 ease-out max-h-[92vh] flex flex-col">
+
+      <!-- Thin Gold Top Accent Bar -->
+      <div class="h-1 w-full bg-gradient-to-r from-[#e8a13c]/30 via-[#e8a13c] to-[#e8a13c]/30 flex-shrink-0"></div>
+
+      <!-- Close Button (Top-Right, Accessible 44px min target) -->
+      <button onclick="closeLeadPopup()" 
+              aria-label="Close form" 
+              class="absolute top-3.5 right-3.5 w-11 h-11 rounded-full bg-[#211a12]/80 hover:bg-[#2b241b] text-[#c9c2b4] hover:text-white border border-[#3a3226] flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#e8a13c] z-20">
+        <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Scrollable Form Container -->
+      <div class="p-5 sm:p-6 overflow-y-auto no-scrollbar flex-1">
+        
+        <!-- Header & Eyebrow -->
+        <div class="pr-8">
+          <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#e8a13c] mb-1">
+            FREE MARKETING AUDIT
+          </span>
+          <h2 id="dd-popup-title" class="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
+            Get More Leads From Your Ads
+          </h2>
+          <p id="dd-popup-sub" class="text-xs sm:text-sm text-[#a89f91] mt-1.5 leading-relaxed">
+            Share a few details and our team will call you within 24 hours with a free growth plan.
+          </p>
+        </div>
+
+        <!-- Trust Points with Check Icons -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 my-4 pt-3.5 border-t border-[#3a3226]/60 text-[11px] sm:text-xs text-[#c9c2b4]">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-[#e8a13c] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="truncate">Meta & Google Ads</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-[#e8a13c] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="truncate">No spam, ever</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-[#e8a13c] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="truncate">100% free audit</span>
+          </div>
+        </div>
+
+        <!-- Popup Lead Form (#dd-lead-popup-form) -->
+        <form id="dd-lead-popup-form" novalidate class="space-y-3.5">
+
+          <!-- Web3Forms Hidden Required Fields -->
+          <input type="hidden" name="access_key" value="6bf5c9e4-a5d7-4e3d-8198-ddfadc1868cc" />
+          <input type="hidden" name="subject" value="New Lead from Digital Das Popup Form" />
+          <input type="hidden" name="from_name" value="Digital Das Popup" />
+          <input type="hidden" name="form_source" value="popup" />
+          
+          <!-- Hidden Tracking Fields -->
+          <input type="hidden" id="popup-page-url" name="page_url" value="" />
+          <input type="hidden" id="popup-utm-source" name="utm_source" value="" />
+          <input type="hidden" id="popup-utm-medium" name="utm_medium" value="" />
+          <input type="hidden" id="popup-utm-campaign" name="utm_campaign" value="" />
+          <input type="hidden" id="popup-utm-term" name="utm_term" value="" />
+          <input type="hidden" id="popup-gclid" name="gclid" value="" />
+          <input type="hidden" id="popup-fbclid" name="fbclid" value="" />
+
+          <!-- Anti-Spam Honeypot Field -->
+          <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+            <label for="popup-website-hp">Do not fill this</label>
+            <input type="text" id="popup-website-hp" name="website_hp" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <!-- Field 1: Full Name (required) -->
+          <div>
+            <label for="popup-name" class="block text-xs font-semibold text-[#c9c2b4] mb-1">
+              Full Name <span class="text-[#e8a13c]">*</span>
+            </label>
+            <input type="text" 
+                   id="popup-name" 
+                   name="name" 
+                   required 
+                   autocomplete="name" 
+                   placeholder="e.g. Rahul Sharma"
+                   class="w-full h-11 px-3.5 rounded-xl bg-[#120e0a] border border-[#3a3226] text-white text-sm focus:outline-none focus:border-[#e8a13c] focus:ring-1 focus:ring-[#e8a13c] transition-colors placeholder:text-[#5c5446]" />
+            <p id="err-popup-name" class="popup-field-err text-[11px] text-[#ff6b6b] mt-1 hidden"></p>
+          </div>
+
+          <!-- Field 2: WhatsApp / Phone Number (required, +91, exactly 10 digits starting with 6-9) -->
+          <div>
+            <label for="popup-phone" class="block text-xs font-semibold text-[#c9c2b4] mb-1">
+              WhatsApp / Phone Number <span class="text-[#e8a13c]">*</span>
+            </label>
+            <div class="flex">
+              <span class="inline-flex items-center px-3 rounded-l-xl bg-[#211a12] border-y border-l border-[#3a3226] text-[#e8a13c] text-xs sm:text-sm font-semibold select-none">
+                +91
+              </span>
+              <input type="tel" 
+                     id="popup-phone" 
+                     name="phone" 
+                     required 
+                     inputmode="numeric" 
+                     maxlength="10" 
+                     placeholder="98765 43210"
+                     class="w-full h-11 px-3.5 rounded-r-xl bg-[#120e0a] border border-[#3a3226] text-white text-sm font-mono tracking-wider focus:outline-none focus:border-[#e8a13c] focus:ring-1 focus:ring-[#e8a13c] transition-colors placeholder:text-[#5c5446]" />
+            </div>
+            <p id="err-popup-phone" class="popup-field-err text-[11px] text-[#ff6b6b] mt-1 hidden"></p>
+          </div>
+
+          <!-- Field 3: Service Needed (required dropdown) -->
+          <div>
+            <label for="popup-service" class="block text-xs font-semibold text-[#c9c2b4] mb-1">
+              Service Needed <span class="text-[#e8a13c]">*</span>
+            </label>
+            <div class="relative">
+              <select id="popup-service" 
+                      name="service" 
+                      required
+                      class="w-full h-11 px-3.5 pr-8 rounded-xl bg-[#120e0a] border border-[#3a3226] text-white text-sm focus:outline-none focus:border-[#e8a13c] focus:ring-1 focus:ring-[#e8a13c] transition-colors appearance-none cursor-pointer">
+                <option value="" disabled selected>Select Service</option>
+                <option value="Meta Ads">Meta Ads</option>
+                <option value="Google Ads">Google Ads</option>
+                <option value="SEO">SEO</option>
+                <option value="Website Development">Website Development</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Not sure">Not sure</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#a89f91]">
+                <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <p id="err-popup-service" class="popup-field-err text-[11px] text-[#ff6b6b] mt-1 hidden"></p>
+          </div>
+
+          <!-- Field 4: Monthly Ad Budget (optional dropdown) -->
+          <div>
+            <label for="popup-budget" class="block text-xs font-semibold text-[#c9c2b4] mb-1">
+              Monthly Ad Budget <span class="text-[#8e8576] font-normal">(Optional)</span>
+            </label>
+            <div class="relative">
+              <select id="popup-budget" 
+                      name="budget"
+                      class="w-full h-11 px-3.5 pr-8 rounded-xl bg-[#120e0a] border border-[#3a3226] text-white text-sm focus:outline-none focus:border-[#e8a13c] focus:ring-1 focus:ring-[#e8a13c] transition-colors appearance-none cursor-pointer">
+                <option value="">Select Monthly Budget (Optional)</option>
+                <option value="Under ₹25K">Under ₹25K</option>
+                <option value="₹25K–₹1L">₹25K–₹1L</option>
+                <option value="₹1L–₹5L">₹1L–₹5L</option>
+                <option value="₹5L+">₹5L+</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#a89f91]">
+                <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inline Error Banner (Hidden unless submission fails) -->
+          <div id="popup-server-error" class="hidden p-3 rounded-xl bg-[#ff5f56]/15 border border-[#ff5f56]/30 text-xs text-[#ff9999] flex items-start gap-2">
+            <svg class="w-4 h-4 stroke-current fill-none flex-shrink-0 mt-0.5 text-[#ff5f56]" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div>
+              <span>Something went wrong. Please try again or </span>
+              <a id="popup-error-wa-link" href="https://wa.me/916387812688" target="_blank" rel="noopener noreferrer" class="underline text-[#e8a13c] font-bold hover:text-[#f4b65d]">WhatsApp us directly</a>.
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" 
+                  id="popup-submit-btn" 
+                  class="w-full h-12 rounded-xl bg-[#e8a13c] hover:bg-[#d48f2b] text-black font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 transition-all transform active:scale-95 shadow-md shadow-[#e8a13c]/30 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c] mt-2">
+            <span id="popup-btn-text">Get My Free Audit →</span>
+            <svg id="popup-btn-spinner" class="hidden animate-spin h-4 w-4 text-black" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- LEAD POPUP JAVASCRIPT LOGIC (Triggers in 0.1s)                       -->
+  <!-- =================================================================== -->
+  <script>
+    const CONFIG = {
+      formEndpoint: "https://api.web3forms.com/submit",
+      thankYouUrl: "/thank-you",
+      whatsappNumber: "916387812688",
+      popupDelayMs: 100, // Exactly 0.1 second as requested
+      hideAfterCloseHours: 24
+    };
+
+    (function initLeadPopup() {
+      let popupOpened = false;
+      let lastFocusedElement = null;
+
+      const popupEl = document.getElementById('dd-lead-popup');
+      const modalBox = document.getElementById('dd-popup-box');
+      const formEl = document.getElementById('dd-lead-popup-form');
+      const submitBtn = document.getElementById('popup-submit-btn');
+      const btnText = document.getElementById('popup-btn-text');
+      const btnSpinner = document.getElementById('popup-btn-spinner');
+      const serverErrorEl = document.getElementById('popup-server-error');
+      const errorWaLink = document.getElementById('popup-error-wa-link');
+
+      if (!popupEl || !formEl) return;
+
+      if (errorWaLink) {
+        errorWaLink.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent('Hi Digital Das, I encountered an issue submitting the audit form.')}`;
+      }
+
+      // Open Popup
+      window.openLeadPopup = function(triggerSource) {
+        if (popupOpened) return;
+        popupOpened = true;
+        lastFocusedElement = document.activeElement;
+
+        populateTrackingFields();
+        clearFormErrors();
+        if (serverErrorEl) serverErrorEl.classList.add('hidden');
+
+        // Reveal modal
+        popupEl.classList.remove('pointer-events-none', 'opacity-0');
+        popupEl.classList.add('opacity-100');
+        if (modalBox) {
+          modalBox.classList.remove('sm:scale-95', 'translate-y-6', 'sm:translate-y-0');
+          modalBox.classList.add('sm:scale-100', 'translate-y-0');
+        }
+        document.body.style.overflow = 'hidden';
+
+        // Auto-focus first input
+        const firstInput = document.getElementById('popup-name');
+        if (firstInput) setTimeout(() => firstInput.focus(), 80);
+
+        console.log('[Lead Popup] Opened in 0.1s via:', triggerSource || 'instant');
+      };
+
+      // Close Popup
+      window.closeLeadPopup = function() {
+        if (!popupOpened) return;
+        popupOpened = false;
+
+        popupEl.classList.remove('opacity-100');
+        popupEl.classList.add('opacity-0', 'pointer-events-none');
+        if (modalBox) {
+          modalBox.classList.remove('sm:scale-100');
+          modalBox.classList.add('sm:scale-95', 'translate-y-6', 'sm:translate-y-0');
+        }
+        document.body.style.overflow = '';
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+          lastFocusedElement.focus();
+        }
+      };
+
+      // URL & Session UTM Persistence
+      function populateTrackingFields() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const trackingKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'gclid', 'fbclid'];
+
+          trackingKeys.forEach(k => {
+            let val = params.get(k);
+            if (val) {
+              sessionStorage.setItem('dd_' + k, val);
+            } else {
+              val = sessionStorage.getItem('dd_' + k) || '';
+            }
+            const input = document.getElementById('popup-' + k.replace('_', '-'));
+            if (input) input.value = val;
+          });
+
+          const pageUrlInput = document.getElementById('popup-page-url');
+          if (pageUrlInput) pageUrlInput.value = window.location.href;
+        } catch (e) {}
+      }
+
+      // TRIGGER IN EXACTLY 0.1 SECOND (100ms)
+      setTimeout(() => {
+        window.openLeadPopup('instant_0.1s');
+      }, CONFIG.popupDelayMs || 100);
+
+      // Also trigger on any element with .open-lead-popup
+      document.addEventListener('click', function(e) {
+        const trigger = e.target.closest('.open-lead-popup');
+        if (trigger) {
+          e.preventDefault();
+          window.openLeadPopup('button_click');
+        }
+      });
+
+      // ESC Key and Focus Trap
+      document.addEventListener('keydown', function(e) {
+        if (!popupOpened) return;
+        if (e.key === 'Escape' || e.key === 'Esc') {
+          window.closeLeadPopup();
+          return;
+        }
+        if (e.key === 'Tab') {
+          const focusables = modalBox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+          if (!focusables.length) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          if (e.shiftKey) {
+            if (document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            }
+          } else {
+            if (document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        }
+      });
+
+      // Validation Helpers
+      function clearFormErrors() {
+        document.querySelectorAll('.popup-field-err').forEach(el => {
+          el.textContent = '';
+          el.classList.add('hidden');
+        });
+        document.querySelectorAll('#dd-lead-popup-form input, #dd-lead-popup-form select').forEach(el => {
+          el.classList.remove('border-[#ff5f56]', 'focus:border-[#ff5f56]', 'focus:ring-[#ff5f56]');
+        });
+      }
+
+      function setFieldError(fieldId, errorMsg) {
+        const input = document.getElementById(fieldId);
+        const errEl = document.getElementById('err-' + fieldId);
+        if (input) {
+          input.classList.add('border-[#ff5f56]', 'focus:border-[#ff5f56]', 'focus:ring-[#ff5f56]');
+        }
+        if (errEl) {
+          errEl.textContent = errorMsg;
+          errEl.classList.remove('hidden');
+        }
+      }
+
+      // Form Submit Handler
+      formEl.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        clearFormErrors();
+        if (serverErrorEl) serverErrorEl.classList.add('hidden');
+
+        // Honeypot spam check
+        const honeypot = document.getElementById('popup-website-hp');
+        if (honeypot && honeypot.value.trim() !== '') {
+          console.warn('[Lead Popup] Honeypot flagged. Aborting submission.');
+          return;
+        }
+
+        // Field Validation
+        const nameInput = document.getElementById('popup-name');
+        const phoneInput = document.getElementById('popup-phone');
+        const serviceInput = document.getElementById('popup-service');
+
+        const nameVal = nameInput ? nameInput.value.trim() : '';
+        const phoneVal = phoneInput ? phoneInput.value.trim().replace(/\D/g, '') : '';
+        const serviceVal = serviceInput ? serviceInput.value.trim() : '';
+
+        let hasError = false;
+
+        if (!nameVal || nameVal.length < 2) {
+          setFieldError('popup-name', 'Please enter your full name (at least 2 characters).');
+          if (!hasError && nameInput) nameInput.focus();
+          hasError = true;
+        }
+
+        // Exactly 10 digits, must start with 6-9
+        const phoneRegex = /^[6-9]\d{9}$/;
+        if (!phoneRegex.test(phoneVal)) {
+          setFieldError('popup-phone', 'Please enter a valid 10-digit number starting with 6, 7, 8, or 9.');
+          if (!hasError && phoneInput) phoneInput.focus();
+          hasError = true;
+        }
+
+        if (!serviceVal) {
+          setFieldError('popup-service', 'Please select a service needed.');
+          if (!hasError && serviceInput) serviceInput.focus();
+          hasError = true;
+        }
+
+        if (hasError) {
+          console.warn('[Lead Popup] Validation failed. No redirect performed.');
+          return;
+        }
+
+        // Prepare Submission Data
+        const formData = new FormData(formEl);
+        const payload = Object.fromEntries(formData.entries());
+        payload.phone = '+91' + phoneVal;
+        payload.page_url = window.location.href;
+        payload.submitted_at = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+        const targetEndpoint = CONFIG.formEndpoint || 'https://api.web3forms.com/submit';
+
+        // Button Loading State
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+        }
+        if (btnText) btnText.textContent = 'Sending...';
+        if (btnSpinner) btnSpinner.classList.remove('hidden');
+
+        try {
+          const response = await fetch(targetEndpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          const result = await response.json().catch(() => ({}));
+
+          if (response.ok && (result.success !== false)) {
+            // SUCCESS: Set sessionStorage flag for Thank You page conversion event
+            try { sessionStorage.setItem('lead_submitted', '1'); } catch(e) {}
+
+            const firstName = encodeURIComponent(nameVal.split(/\s+/)[0] || '');
+            console.log('[Lead Popup] Submit successful. Redirecting to:', `${CONFIG.thankYouUrl}?name=${firstName}`);
+            window.location.href = `${CONFIG.thankYouUrl}?name=${firstName}`;
+          } else {
+            throw new Error(result.message || 'Server returned non-200 status');
+          }
+        } catch (err) {
+          console.error('[Lead Popup] Submission failed:', err);
+          // FAILURE: Do NOT redirect, show error, re-enable button
+          if (serverErrorEl) serverErrorEl.classList.remove('hidden');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+          }
+          if (btnText) btnText.textContent = 'Get My Free Audit →';
+          if (btnSpinner) btnSpinner.classList.add('hidden');
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
