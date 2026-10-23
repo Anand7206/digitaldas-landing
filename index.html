@@ -830,6 +830,19 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
               </div>
 
               <div>
+                <label for="lead-city" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">City *</label>
+                <input type="text" 
+                       id="lead-city" 
+                       name="city" 
+                       required
+                       placeholder="e.g. Lucknow / Delhi / Mumbai" 
+                       class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base placeholder-[#6c665a]/60 transition-colors" />
+                <p id="err-city" class="hidden text-xs text-red-600 font-semibold mt-1">Please enter your city.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
                 <label for="lead-service" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">Service Required *</label>
                 <select id="lead-service" 
                         name="service" 
@@ -846,21 +859,21 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
                 </select>
                 <p id="err-service" class="hidden text-xs text-red-600 font-semibold mt-1">Please select a service.</p>
               </div>
-            </div>
 
-            <div>
-              <label for="lead-budget" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">Estimated Monthly Budget *</label>
-              <select id="lead-budget" 
-                      name="budget" 
-                      required
-                      class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base transition-colors">
-                <option value="" disabled selected>Select Budget Range</option>
-                <option value="₹10k–25k">₹10,000 – ₹25,000 / month</option>
-                <option value="₹25k–50k">₹25,000 – ₹50,000 / month</option>
-                <option value="₹50k–1L">₹50,000 – ₹1,00,000 / month</option>
-                <option value="₹1L+">₹1,00,000+ / month</option>
-              </select>
-              <p id="err-budget" class="hidden text-xs text-red-600 font-semibold mt-1">Please select your estimated budget.</p>
+              <div>
+                <label for="lead-budget" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">Estimated Monthly Budget *</label>
+                <select id="lead-budget" 
+                        name="budget" 
+                        required
+                        class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base transition-colors">
+                  <option value="" disabled selected>Select Budget Range</option>
+                  <option value="₹10k–25k">₹10,000 – ₹25,000 / month</option>
+                  <option value="₹25k–50k">₹25,000 – ₹50,000 / month</option>
+                  <option value="₹50k–1L">₹50,000 – ₹1,00,000 / month</option>
+                  <option value="₹1L+">₹1,00,000+ / month</option>
+                </select>
+                <p id="err-budget" class="hidden text-xs text-red-600 font-semibold mt-1">Please select your estimated budget.</p>
+              </div>
             </div>
 
             <div>
@@ -1315,12 +1328,14 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
       const nameInput = document.getElementById('lead-name');
       const phoneInput = document.getElementById('lead-phone');
       const emailInput = document.getElementById('lead-email');
+      const cityInput = document.getElementById('lead-city');
       const serviceInput = document.getElementById('lead-service');
       const budgetInput = document.getElementById('lead-budget');
 
       const errName = document.getElementById('err-name');
       const errPhone = document.getElementById('err-phone');
       const errEmail = document.getElementById('err-email');
+      const errCity = document.getElementById('err-city');
       const errService = document.getElementById('err-service');
       const errBudget = document.getElementById('err-budget');
 
@@ -1354,6 +1369,15 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
       } else {
         errEmail.classList.add('hidden');
         emailInput.classList.remove('border-red-600');
+      }
+
+      if (!cityInput || !cityInput.value.trim()) {
+        if (errCity) errCity.classList.remove('hidden');
+        if (cityInput) cityInput.classList.add('border-red-600');
+        isValid = false;
+      } else {
+        if (errCity) errCity.classList.add('hidden');
+        if (cityInput) cityInput.classList.remove('border-red-600');
       }
 
       if (!serviceInput.value) {
@@ -1855,8 +1879,8 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
   </div>
 
 
-  <!-- =================================================================== -->
-  <!-- LEAD GENERATION POPUP MODAL (#dd-lead-popup) - 0.1s Instant Trigger -->
+    <!-- =================================================================== -->
+  <!-- LEAD GENERATION POPUP MODAL (#dd-lead-popup) - Professional Cream Theme -->
   <!-- =================================================================== -->
   <div id="dd-lead-popup" 
        class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out" 
@@ -1870,54 +1894,38 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
          class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300" 
          onclick="closeLeadPopup()"></div>
 
-    <!-- Modal Box: Centered max-w-[480px] on desktop, Bottom Sheet on mobile -->
+    <!-- Modal Box: Clean Cream Card matching screenshot -->
     <div id="dd-popup-box" 
-         class="relative w-full sm:max-w-[480px] bg-[#15110c] border border-[#3a3226] sm:rounded-2xl rounded-t-2xl shadow-dark-card shadow-2xl z-10 overflow-hidden transform translate-y-6 sm:translate-y-0 sm:scale-95 transition-all duration-300 ease-out max-h-[92vh] flex flex-col">
+         class="relative w-full sm:max-w-[620px] bg-[#f4f0e8] border border-[#e6dfd0] sm:rounded-3xl rounded-t-3xl shadow-card-soft shadow-2xl z-10 overflow-hidden transform translate-y-6 sm:translate-y-0 sm:scale-95 transition-all duration-300 ease-out max-h-[92vh] flex flex-col">
 
       <!-- Thin Gold Top Accent Bar -->
-      <div class="h-1 w-full bg-gradient-to-r from-[#e8a13c]/30 via-[#e8a13c] to-[#e8a13c]/30 flex-shrink-0"></div>
+      <div class="h-1.5 w-full bg-gradient-to-r from-[#e8a13c]/30 via-[#e8a13c] to-[#e8a13c]/30 flex-shrink-0"></div>
 
-      <!-- Close Button (Top-Right, Accessible 44px min target) -->
+      <!-- Close Button (Top-Right, 44px min target) -->
       <button onclick="closeLeadPopup()" 
               aria-label="Close form" 
-              class="absolute top-3.5 right-3.5 w-11 h-11 rounded-full bg-[#211a12]/80 hover:bg-[#2b241b] text-[#c9c2b4] hover:text-white border border-[#3a3226] flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#e8a13c] z-20">
+              class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-[#1a1815] border border-[#e6dfd0] shadow-sm flex items-center justify-center transition-all focus:outline-none focus:ring-2 focus:ring-[#e8a13c] z-20">
         <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
 
       <!-- Scrollable Form Container -->
-      <div class="p-5 sm:p-6 overflow-y-auto no-scrollbar flex-1">
+      <div class="p-6 sm:p-8 overflow-y-auto no-scrollbar flex-1">
         
-        <!-- Header & Eyebrow -->
-        <div class="pr-8">
+        <!-- Header & Eyebrow (Matching Screenshot) -->
+        <div class="text-center pr-6 pl-2 sm:px-4 mb-6">
           <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#e8a13c] mb-1">
-            FREE MARKETING AUDIT
+            Free 15-Minute Strategy Call
           </span>
-          <h2 id="dd-popup-title" class="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
-            Get More Leads From Your Ads
+          <h2 id="dd-popup-title" class="text-2xl sm:text-3xl font-extrabold text-[#1a1815] tracking-tight">
+            Tell Us About Your Project
           </h2>
-          <p id="dd-popup-sub" class="text-xs sm:text-sm text-[#a89f91] mt-1.5 leading-relaxed">
-            Share a few details and our team will call you within 24 hours with a free growth plan.
+          <p id="dd-popup-sub" class="text-xs sm:text-sm text-[#6c665a] mt-1.5 leading-relaxed">
+            Fill in your details below to schedule a free 15-minute strategy call with our team.
           </p>
         </div>
 
-        <!-- Trust Points with Check Icons -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 my-4 pt-3.5 border-t border-[#3a3226]/60 text-[11px] sm:text-xs text-[#c9c2b4]">
-          <div class="flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 text-[#e8a13c] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            <span class="truncate">Meta & Google Ads</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 text-[#e8a13c] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            <span class="truncate">No spam, ever</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 text-[#e8a13c] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            <span class="truncate">100% free audit</span>
-          </div>
-        </div>
-
         <!-- Popup Lead Form (#dd-lead-popup-form) -->
-        <form id="dd-lead-popup-form" novalidate class="space-y-3.5">
+        <form id="dd-lead-popup-form" novalidate class="space-y-4">
 
           <!-- Web3Forms Hidden Required Fields -->
           <input type="hidden" name="access_key" value="6bf5c9e4-a5d7-4e3d-8198-ddfadc1868cc" />
@@ -1940,107 +1948,145 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
             <input type="text" id="popup-website-hp" name="website_hp" tabindex="-1" autocomplete="off" />
           </div>
 
-          <!-- Field 1: Full Name (required) -->
-          <div>
-            <label for="popup-name" class="block text-xs font-semibold text-[#c9c2b4] mb-1">
-              Full Name <span class="text-[#e8a13c]">*</span>
-            </label>
-            <input type="text" 
-                   id="popup-name" 
-                   name="name" 
-                   required 
-                   autocomplete="name" 
-                   placeholder="e.g. Rahul Sharma"
-                   class="w-full h-11 px-3.5 rounded-xl bg-[#120e0a] border border-[#3a3226] text-white text-sm focus:outline-none focus:border-[#e8a13c] focus:ring-1 focus:ring-[#e8a13c] transition-colors placeholder:text-[#5c5446]" />
-            <p id="err-popup-name" class="popup-field-err text-[11px] text-[#ff6b6b] mt-1 hidden"></p>
-          </div>
+          <!-- Row 1: Full Name & Phone Number -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="popup-name" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">
+                Full Name *
+              </label>
+              <input type="text" 
+                     id="popup-name" 
+                     name="name" 
+                     required 
+                     autocomplete="name" 
+                     placeholder="e.g. Rahul Sharma"
+                     class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base placeholder-[#6c665a]/60 focus:outline-none focus:ring-2 focus:ring-[#e8a13c] transition-colors shadow-sm" />
+              <p id="err-popup-name" class="popup-field-err text-xs text-red-600 font-semibold mt-1 hidden">Please enter your full name.</p>
+            </div>
 
-          <!-- Field 2: WhatsApp / Phone Number (required, +91, exactly 10 digits starting with 6-9) -->
-          <div>
-            <label for="popup-phone" class="block text-xs font-semibold text-[#c9c2b4] mb-1">
-              WhatsApp / Phone Number <span class="text-[#e8a13c]">*</span>
-            </label>
-            <div class="flex">
-              <span class="inline-flex items-center px-3 rounded-l-xl bg-[#211a12] border-y border-l border-[#3a3226] text-[#e8a13c] text-xs sm:text-sm font-semibold select-none">
-                +91
-              </span>
+            <div>
+              <label for="popup-phone" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">
+                Phone Number (10 Digits) *
+              </label>
               <input type="tel" 
                      id="popup-phone" 
                      name="phone" 
                      required 
                      inputmode="numeric" 
+                     pattern="[0-9]{10}"
                      maxlength="10" 
-                     placeholder="98765 43210"
-                     class="w-full h-11 px-3.5 rounded-r-xl bg-[#120e0a] border border-[#3a3226] text-white text-sm font-mono tracking-wider focus:outline-none focus:border-[#e8a13c] focus:ring-1 focus:ring-[#e8a13c] transition-colors placeholder:text-[#5c5446]" />
+                     placeholder="e.g. 9876543210"
+                     class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base placeholder-[#6c665a]/60 focus:outline-none focus:ring-2 focus:ring-[#e8a13c] transition-colors shadow-sm" />
+              <p id="err-popup-phone" class="popup-field-err text-xs text-red-600 font-semibold mt-1 hidden">Please enter a valid 10-digit mobile number.</p>
             </div>
-            <p id="err-popup-phone" class="popup-field-err text-[11px] text-[#ff6b6b] mt-1 hidden"></p>
           </div>
 
-          <!-- Field 3: Service Needed (required dropdown) -->
-          <div>
-            <label for="popup-service" class="block text-xs font-semibold text-[#c9c2b4] mb-1">
-              Service Needed <span class="text-[#e8a13c]">*</span>
-            </label>
-            <div class="relative">
+          <!-- Row 2: Email Address & City -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="popup-email" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">
+                Email Address *
+              </label>
+              <input type="email" 
+                     id="popup-email" 
+                     name="email" 
+                     required 
+                     placeholder="name@company.com"
+                     class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base placeholder-[#6c665a]/60 focus:outline-none focus:ring-2 focus:ring-[#e8a13c] transition-colors shadow-sm" />
+              <p id="err-popup-email" class="popup-field-err text-xs text-red-600 font-semibold mt-1 hidden">Please enter a valid email address.</p>
+            </div>
+
+            <div>
+              <label for="popup-city" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">
+                City *
+              </label>
+              <input type="text" 
+                     id="popup-city" 
+                     name="city" 
+                     required 
+                     placeholder="e.g. Lucknow / Delhi / Mumbai"
+                     class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base placeholder-[#6c665a]/60 focus:outline-none focus:ring-2 focus:ring-[#e8a13c] transition-colors shadow-sm" />
+              <p id="err-popup-city" class="popup-field-err text-xs text-red-600 font-semibold mt-1 hidden">Please enter your city.</p>
+            </div>
+          </div>
+
+          <!-- Row 3: Service Required & Estimated Monthly Budget -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="popup-service" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">
+                Service Required *
+              </label>
               <select id="popup-service" 
                       name="service" 
                       required
-                      class="w-full h-11 px-3.5 pr-8 rounded-xl bg-[#120e0a] border border-[#3a3226] text-white text-sm focus:outline-none focus:border-[#e8a13c] focus:ring-1 focus:ring-[#e8a13c] transition-colors appearance-none cursor-pointer">
-                <option value="" disabled selected>Select Service</option>
-                <option value="Meta Ads">Meta Ads</option>
-                <option value="Google Ads">Google Ads</option>
-                <option value="SEO">SEO</option>
+                      class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base focus:outline-none focus:ring-2 focus:ring-[#e8a13c] transition-colors shadow-sm">
+                <option value="" disabled selected>Select a Service</option>
                 <option value="Website Development">Website Development</option>
-                <option value="Social Media">Social Media</option>
-                <option value="Not sure">Not sure</option>
+                <option value="SEO Optimization">SEO Optimization</option>
+                <option value="Google Ads">Google Ads</option>
+                <option value="Meta Ads">Meta Ads (Facebook & Instagram)</option>
+                <option value="Social Media Marketing">Social Media Marketing</option>
+                <option value="App Development">App Development</option>
+                <option value="Other">Other / Full 360° Digital</option>
               </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#a89f91]">
-                <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-              </div>
+              <p id="err-popup-service" class="popup-field-err text-xs text-red-600 font-semibold mt-1 hidden">Please select a service.</p>
             </div>
-            <p id="err-popup-service" class="popup-field-err text-[11px] text-[#ff6b6b] mt-1 hidden"></p>
-          </div>
 
-          <!-- Field 4: Monthly Ad Budget (optional dropdown) -->
-          <div>
-            <label for="popup-budget" class="block text-xs font-semibold text-[#c9c2b4] mb-1">
-              Monthly Ad Budget <span class="text-[#8e8576] font-normal">(Optional)</span>
-            </label>
-            <div class="relative">
+            <div>
+              <label for="popup-budget" class="block text-xs font-bold text-[#1a1815] uppercase tracking-wider mb-1.5">
+                Estimated Monthly Budget *
+              </label>
               <select id="popup-budget" 
-                      name="budget"
-                      class="w-full h-11 px-3.5 pr-8 rounded-xl bg-[#120e0a] border border-[#3a3226] text-white text-sm focus:outline-none focus:border-[#e8a13c] focus:ring-1 focus:ring-[#e8a13c] transition-colors appearance-none cursor-pointer">
-                <option value="">Select Monthly Budget (Optional)</option>
-                <option value="Under ₹25K">Under ₹25K</option>
-                <option value="₹25K–₹1L">₹25K–₹1L</option>
-                <option value="₹1L–₹5L">₹1L–₹5L</option>
-                <option value="₹5L+">₹5L+</option>
+                      name="budget" 
+                      required
+                      class="w-full h-12 px-4 rounded-xl bg-white border border-[#e6dfd0] text-[#1a1815] text-base focus:outline-none focus:ring-2 focus:ring-[#e8a13c] transition-colors shadow-sm">
+                <option value="" disabled selected>Select Budget Range</option>
+                <option value="₹10k–25k">₹10,000 – ₹25,000 / month</option>
+                <option value="₹25k–50k">₹25,000 – ₹50,000 / month</option>
+                <option value="₹50k–1L">₹50,000 – ₹1,00,000 / month</option>
+                <option value="₹1L+">₹1,00,000+ / month</option>
               </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#a89f91]">
-                <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-              </div>
+              <p id="err-popup-budget" class="popup-field-err text-xs text-red-600 font-semibold mt-1 hidden">Please select your estimated budget.</p>
             </div>
           </div>
 
           <!-- Inline Error Banner (Hidden unless submission fails) -->
-          <div id="popup-server-error" class="hidden p-3 rounded-xl bg-[#ff5f56]/15 border border-[#ff5f56]/30 text-xs text-[#ff9999] flex items-start gap-2">
-            <svg class="w-4 h-4 stroke-current fill-none flex-shrink-0 mt-0.5 text-[#ff5f56]" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <div>
-              <span>Something went wrong. Please try again or </span>
-              <a id="popup-error-wa-link" href="https://wa.me/916387812688" target="_blank" rel="noopener noreferrer" class="underline text-[#e8a13c] font-bold hover:text-[#f4b65d]">WhatsApp us directly</a>.
-            </div>
+          <div id="popup-server-error" class="hidden p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium text-center">
+            Something went wrong. Please WhatsApp us at 
+            <a id="popup-error-wa-link" href="https://wa.me/916387812688" target="_blank" rel="noopener noreferrer" class="font-bold underline text-red-800 hover:text-red-900 ml-1">
+              +91 6387812688
+            </a>
           </div>
 
-          <!-- Submit Button -->
+          <!-- Submit Button (Golden, Matching Screenshot) -->
           <button type="submit" 
                   id="popup-submit-btn" 
-                  class="w-full h-12 rounded-xl bg-[#e8a13c] hover:bg-[#d48f2b] text-black font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 transition-all transform active:scale-95 shadow-md shadow-[#e8a13c]/30 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c] mt-2">
-            <span id="popup-btn-text">Get My Free Audit →</span>
-            <svg id="popup-btn-spinner" class="hidden animate-spin h-4 w-4 text-black" fill="none" viewBox="0 0 24 24">
+                  class="w-full h-14 rounded-xl bg-[#e8a13c] hover:bg-[#d48f2b] text-black font-extrabold text-lg flex items-center justify-center gap-2 transition-all transform active:scale-[0.99] shadow-md shadow-[#e8a13c]/30 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-[#e8a13c] mt-2">
+            <span id="popup-btn-text">Get My Free Strategy Call</span>
+            <svg id="popup-btn-icon" class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg id="popup-btn-spinner" class="hidden animate-spin h-5 w-5 text-black" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
           </button>
+
+          <!-- Trust Badges (Matching Screenshot & Main Form) -->
+          <div class="pt-4 border-t border-[#e6dfd0] flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-semibold text-[#6c665a]">
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#e8a13c] stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>No spam guaranteed</span>
+            </div>
+            <span class="text-[#e6dfd0]">•</span>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#e8a13c] stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Reply within 24 hours</span>
+            </div>
+            <span class="text-[#e6dfd0]">•</span>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#e8a13c] stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Free 15-min consultation</span>
+            </div>
+          </div>
 
         </form>
 
@@ -2049,7 +2095,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
   </div>
 
   <!-- =================================================================== -->
-  <!-- LEAD POPUP JAVASCRIPT LOGIC (Triggers in 0.1s)                       -->
+  <!-- LEAD POPUP JAVASCRIPT LOGIC<!-- LEAD POPUP JAVASCRIPT LOGIC (Triggers in 0.1s)                       -->
   <!-- =================================================================== -->
   <script>
     const CONFIG = {
@@ -2192,7 +2238,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
           el.classList.add('hidden');
         });
         document.querySelectorAll('#dd-lead-popup-form input, #dd-lead-popup-form select').forEach(el => {
-          el.classList.remove('border-[#ff5f56]', 'focus:border-[#ff5f56]', 'focus:ring-[#ff5f56]');
+          el.classList.remove('border-red-600', 'focus:border-red-600', 'focus:ring-red-600');
         });
       }
 
@@ -2200,7 +2246,7 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         const input = document.getElementById(fieldId);
         const errEl = document.getElementById('err-' + fieldId);
         if (input) {
-          input.classList.add('border-[#ff5f56]', 'focus:border-[#ff5f56]', 'focus:ring-[#ff5f56]');
+          input.classList.add('border-red-600', 'focus:border-red-600', 'focus:ring-red-600');
         }
         if (errEl) {
           errEl.textContent = errorMsg;
@@ -2224,31 +2270,56 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         // Field Validation
         const nameInput = document.getElementById('popup-name');
         const phoneInput = document.getElementById('popup-phone');
+        const emailInput = document.getElementById('popup-email');
+        const cityInput = document.getElementById('popup-city');
         const serviceInput = document.getElementById('popup-service');
+        const budgetInput = document.getElementById('popup-budget');
 
         const nameVal = nameInput ? nameInput.value.trim() : '';
         const phoneVal = phoneInput ? phoneInput.value.trim().replace(/\D/g, '') : '';
+        const emailVal = emailInput ? emailInput.value.trim() : '';
+        const cityVal = cityInput ? cityInput.value.trim() : '';
         const serviceVal = serviceInput ? serviceInput.value.trim() : '';
+        const budgetVal = budgetInput ? budgetInput.value.trim() : '';
 
         let hasError = false;
 
         if (!nameVal || nameVal.length < 2) {
-          setFieldError('popup-name', 'Please enter your full name (at least 2 characters).');
+          setFieldError('popup-name', 'Please enter your full name.');
           if (!hasError && nameInput) nameInput.focus();
           hasError = true;
         }
 
-        // Exactly 10 digits, must start with 6-9
-        const phoneRegex = /^[6-9]\d{9}$/;
+        // Exactly 10 digits
+        const phoneRegex = /^[0-9]{10}$/;
         if (!phoneRegex.test(phoneVal)) {
-          setFieldError('popup-phone', 'Please enter a valid 10-digit number starting with 6, 7, 8, or 9.');
+          setFieldError('popup-phone', 'Please enter a valid 10-digit mobile number.');
           if (!hasError && phoneInput) phoneInput.focus();
           hasError = true;
         }
 
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailVal)) {
+          setFieldError('popup-email', 'Please enter a valid email address.');
+          if (!hasError && emailInput) emailInput.focus();
+          hasError = true;
+        }
+
+        if (!cityVal || cityVal.length < 2) {
+          setFieldError('popup-city', 'Please enter your city.');
+          if (!hasError && cityInput) cityInput.focus();
+          hasError = true;
+        }
+
         if (!serviceVal) {
-          setFieldError('popup-service', 'Please select a service needed.');
+          setFieldError('popup-service', 'Please select a service.');
           if (!hasError && serviceInput) serviceInput.focus();
+          hasError = true;
+        }
+
+        if (!budgetVal) {
+          setFieldError('popup-budget', 'Please select your estimated budget.');
+          if (!hasError && budgetInput) budgetInput.focus();
           hasError = true;
         }
 
@@ -2267,11 +2338,13 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
         const targetEndpoint = CONFIG.formEndpoint || 'https://api.web3forms.com/submit';
 
         // Button Loading State
+        const btnIcon = document.getElementById('popup-btn-icon');
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
         }
         if (btnText) btnText.textContent = 'Sending...';
+        if (btnIcon) btnIcon.classList.add('hidden');
         if (btnSpinner) btnSpinner.classList.remove('hidden');
 
         try {
@@ -2288,11 +2361,14 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
 
           if (response.ok && (result.success !== false)) {
             // SUCCESS: Set sessionStorage flag for Thank You page conversion event
-            try { sessionStorage.setItem('lead_submitted', '1'); } catch(e) {}
+            try { 
+              sessionStorage.setItem('lead_pending', 'true');
+              sessionStorage.setItem('lead_submitted', '1');
+            } catch(e) {}
 
             const firstName = encodeURIComponent(nameVal.split(/\s+/)[0] || '');
-            console.log('[Lead Popup] Submit successful. Redirecting to:', `${CONFIG.thankYouUrl}?name=${firstName}`);
-            window.location.href = `${CONFIG.thankYouUrl}?name=${firstName}`;
+            console.log('[Lead Popup] Submit successful. Redirecting to thank-you.html');
+            window.location.href = `thank-you.html?name=${firstName}`;
           } else {
             throw new Error(result.message || 'Server returned non-200 status');
           }
@@ -2304,7 +2380,9 @@ src="https://www.facebook.com/tr?id=2887395881594294&ev=PageView&noscript=1"
             submitBtn.disabled = false;
             submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
           }
-          if (btnText) btnText.textContent = 'Get My Free Audit →';
+          const btnIcon = document.getElementById('popup-btn-icon');
+          if (btnText) btnText.textContent = 'Get My Free Strategy Call';
+          if (btnIcon) btnIcon.classList.remove('hidden');
           if (btnSpinner) btnSpinner.classList.add('hidden');
         }
       });
