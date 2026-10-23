@@ -2,3 +2,9 @@ node_modules
 .DS_Store
 Thumbs.db
 .vercel
+*.zip
+*.mov
+assets/videos/*.mov
+assets/videos/DD Testimonial*
+assets/videos/dd-testimonial-abc.mp4
+assets/videos/dd-testimonial-combine.mp4
